@@ -1,0 +1,18 @@
+@import "stories/styles/variables";
+
+.code {
+  margin: 0;
+  padding: 2rem;
+  background-color: $colorHighlight;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.comment {
+  line-height: 2;
+  opacity: 0.5;
+}
+
+.highlight {
+  font-weight: 600;
+}

@@ -1,0 +1,7 @@
+.wrapperRequired {
+  .label {
+    &::after {
+      content: "*"
+    }
+  }
+}

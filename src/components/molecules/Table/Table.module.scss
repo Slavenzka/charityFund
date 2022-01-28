@@ -1,0 +1,30 @@
+.wrapper {
+  width: 100%;
+}
+
+.row {
+  display: grid;
+  grid-column-gap: 1px;
+}
+
+.rowClickable {
+  cursor: pointer;
+
+  &:hover {
+    background-color: paleturquoise;
+  }
+}
+
+.heading {
+  font-size: 1.4rem;
+  font-weight: 600;
+  background-color: lightgrey;
+}
+
+
+.spinner {
+  margin: 3rem auto 0 auto;
+  display: block;
+  width: 3.5rem;
+  fill: mediumpurple;
+}

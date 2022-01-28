@@ -1,0 +1,49 @@
+@import "styles/mixins";
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wrapperRequired {
+}
+
+.input {
+  @include inputDefault;
+
+  width: 100%;
+  resize: none;
+}
+
+.inputHidden {
+  @include visuallyHidden;
+}
+
+.checkboxDefault {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: "";
+    margin-right: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: darkgray;
+  }
+}
+
+.checkboxDefaultChecked {
+  &::before {
+    background-color: black;
+  }
+}
+
+.iconCheck {
+  position: absolute;
+  top: calc(50% - 1.5rem / 2);
+  left: calc(1.5rem / 10);
+  width: 1.2rem;
+  fill: white;
+}

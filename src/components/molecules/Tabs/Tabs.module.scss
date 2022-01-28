@@ -1,0 +1,10 @@
+@import "styles/mixins";
+
+.list {
+  @include resetList;
+}
+
+.listDefault {
+  display: flex;
+  align-items: center;
+}

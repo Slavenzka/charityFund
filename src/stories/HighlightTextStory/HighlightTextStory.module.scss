@@ -1,0 +1,8 @@
+@import "stories/styles/variables";
+
+.wrapper {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.5rem;
+  background-color: $colorHighlight;
+}

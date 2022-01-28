@@ -1,0 +1,21 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendars {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  width: max-content;
+}
+
+.calendarsOpen {
+  display: flex;
+}
+
+.test {
+  position: static;
+}

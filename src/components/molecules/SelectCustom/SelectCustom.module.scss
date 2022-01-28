@@ -1,0 +1,91 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+.wrapper {
+  :global {
+    .select {
+      &__control {
+        min-height: auto;
+
+        &--menu-is-open {
+          :local {
+            .icon {
+              transform: rotate(180deg);
+            }
+          }
+        }
+      }
+
+      &__single-value {
+        color: inherit;
+      }
+
+      &__indicators {
+        padding: 0.5rem;
+      }
+
+      &__indicator-separator {
+        display: none;
+      }
+
+      &__dropdown-indicator {
+        padding: 0;
+      }
+
+      &__menu {
+        margin: 0.5rem 0 0 0;
+        border-radius: 0;
+      }
+
+      &__menu-list {
+        padding: 0;
+      }
+    }
+  }
+}
+
+.wrapperDefault {
+  :global {
+    .select {
+      &__control {
+        @include inputDefault;
+      }
+    }
+  }
+}
+
+.wrapperDisabled,
+.wrapperLoading {
+  pointer-events: none;
+}
+
+.wrapperDisabled {
+  :global {
+    .select {
+      &__control {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+.wrapperLoading {
+  pointer-events: none;
+}
+
+.option {
+  color: gray;
+
+  &:hover {
+    background-color: red;
+  }
+}
+
+.icon {
+  height: 1.2rem;
+  fill: purple;
+  stroke: purple;
+  transition-duration: $transitionDuration;
+  transition-property: transform;
+  transform-origin: center;
+}

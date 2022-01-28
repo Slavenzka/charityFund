@@ -1,0 +1,20 @@
+.table {
+  margin-top: 2rem;
+}
+
+.rowStatus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.cell {
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.spinner {
+  width: 3rem;
+  fill: purple;
+}

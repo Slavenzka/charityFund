@@ -1,0 +1,18 @@
+@import "../../../styles/mixins";
+
+.input {
+  @include visuallyHidden;
+}
+
+.list {
+  @include resetList;
+}
+
+.item {
+  margin-top: 0.5rem;
+}
+
+.image {
+  max-width: 90vw;
+  max-height: 90vh;
+}

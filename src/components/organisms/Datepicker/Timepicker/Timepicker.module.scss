@@ -1,0 +1,81 @@
+@import "styles/mixins";
+
+.wrapper {
+  --timepicker-header-height: 7.5rem;
+  width: 5rem;
+  height: 100%;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: var(--timepicker-header-height);
+  padding-bottom: 1rem;
+  color: var(--colorMedium);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--colorMedium30);
+}
+
+.selectWrapper {
+  padding: 0.4rem 0.4rem 0.4rem 1.5rem;
+  height: calc(100% - var(--timepicker-header-height));
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.select {
+  height: 100%;
+
+  :global {
+    .select {
+      &__control {
+        display: none;
+      }
+
+      &__menu {
+        margin: 0;
+        top: 0;
+        height: 100%;
+        background-color: var(--colorMediumLighter);
+        border-radius: 0.5rem;
+        box-shadow: none;
+        overflow: hidden;
+      }
+
+      &__menu-list {
+        padding: 0;
+        width: calc(100%);
+        height: 100%;
+        max-height: 100%;
+        scrollbar-width: none;
+        scrollbar-color: transparent transparent;
+
+        &::-webkit-scrollbar {
+          width: 0;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: var(--colorMediumLighter);
+        }
+      }
+
+      &__option {
+        padding: 0;
+        text-align: center;
+
+        &--is-focused,
+        &--is-hovered {
+          color: var(--colorMediumDarker);
+          background-color: transparent;
+        }
+
+        &--is-selected {
+          color: var(--colorDarkest);
+          background-color: var(--colorHighlight20);
+        }
+      }
+    }
+  }
+}

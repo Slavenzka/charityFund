@@ -1,0 +1,13 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: 2rem;
+}
+
+.heading {
+  margin-bottom: 2rem;
+}
+
+.content {
+  grid-row: 2 / 3;
+}

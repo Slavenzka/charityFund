@@ -1,0 +1,15 @@
+.wrapper {
+  .cellGreen {
+    background-color: lightgreen;
+  }
+}
+
+.cellRed {
+  background-color: red;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  background-color: pink;
+}

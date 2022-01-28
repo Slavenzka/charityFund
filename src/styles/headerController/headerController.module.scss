@@ -1,0 +1,19 @@
+@import "styles/variables";
+
+.header {
+  position: sticky;
+  top: 0;
+  transition-duration: $transitionDuration;
+  transition-timing-function: ease-in-out;
+  transition-property: top, background-color;
+  background-color: white;
+}
+
+.scroll-down {
+  top: -100%;
+}
+
+.scroll-up {
+  top: 0;
+  background-color: lightgrey;
+}

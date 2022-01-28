@@ -1,0 +1,170 @@
+@import "styles/mixins";
+@import "styles/variables";
+
+.wrapper {
+  --calendar-footer-height: 4.2rem;
+  --timepicker-area-width: 10rem;
+
+  position: relative;
+
+  :global {
+    .react-datepicker {
+      border: none;
+      display: flex;
+      flex-wrap: wrap;
+      width: calc(30rem + var(--timepicker-area-width) + 0.1rem);
+      box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.1);
+
+      &__triangle {
+        display: none;
+      }
+
+      &__navigation {
+        top: 0.2rem;
+        width: 3.2rem;
+        height: 3.2rem;
+      }
+
+      &__header {
+        margin: 0;
+        padding: 1rem 0;
+        background-color: lightgrey;
+        border-bottom: none;
+
+        &__dropdown {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 4rem;
+        }
+      }
+
+      &__month-select,
+      &__year-select {
+        @include resetButton;
+
+        font-size: 1.2rem;
+        color: black;
+        background-color: yellow;
+        transition-duration: $transitionDuration;
+        transition-property: color;
+
+        &:hover {
+          color: darkgray;
+        }
+      }
+
+      &__month-container {
+        position: relative;
+        width: 30rem;
+        border-radius: 1rem 0 0 1rem;
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 100%;
+          top: 0;
+          width: 1px;
+          height: calc(100% + var(--calendar-footer-height));
+          background-color: var(--colorMedium30);
+          z-index: 2;
+        }
+      }
+
+      &__current-month {
+        color: var(--colorMediumDarker);
+      }
+
+      &__navigation {
+        top: 0.7rem;
+
+        &--previous {
+          left: 5rem
+        }
+
+        &--next {
+          left: 22rem;
+        }
+      }
+
+      &__month {
+        margin: 0;
+      }
+
+      &__day-names {
+        padding-top: 1rem;
+        border-top: 1px solid var(--colorMedium30);
+      }
+
+      &__day-name,
+      &__day,
+      &__time-name {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 3.1rem;
+        height: 3.1rem;
+        color: var(--colorDark);
+        border-radius: 50%;
+
+        &:hover {
+          border-radius: 50%;
+        }
+      }
+
+      &__day {
+        &--selected {
+          background-color: var(--colorHighlight20);
+          border: 1px solid var(--colorHighlight);
+
+          &:hover {
+            background-color: var(--colorHighlight20);
+            border: 1px solid var(--colorHighlight);
+          }
+        }
+
+        &--outside-month {
+          color: var(--colorMediumDarker);
+        }
+      }
+
+      &__day-name {
+        color: var(--colorMedium);
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.wrapperSingleTimepicker {
+  --timepicker-area-width: 5rem;
+}
+
+.wrapperNoTimepicker {
+  --timepicker-area-width: 0;
+}
+
+.wrapperDisabled {
+  .label {
+    pointer-events: none;
+  }
+}
+
+.timepicker {
+  display: flex;
+  height: 33rem;
+  border-radius: 0 1rem 1rem 0;
+  overflow: hidden;
+}
+
+.footer {
+  display: flex;
+  width: 100%;
+  height: var(--calendar-footer-height);
+  border-top: 1px solid var(--colorMedium30);
+}
+
+.buttonToday {
+  font-size: 1.2rem;
+  color: black;
+}
