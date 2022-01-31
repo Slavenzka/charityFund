@@ -5,7 +5,7 @@ import Heading from 'components/atoms/Heading/Heading'
 import Table from 'components/molecules/Table/Table'
 import { tableData } from 'Pages/TableExamples/_assets/tableData'
 import { LoadingStatuses } from 'utils/const'
-import TableCheckbox from 'components/organisms/TableCheckbox/TableCheckbox'
+import TableCheckbox from 'components/atoms/TableCheckbox/TableCheckbox'
 import TableRowDefault from 'components/molecules/TableRowDefault/TableRowDefault'
 import DummyController from 'components/organisms/DummyController/DummyController'
 

@@ -7,7 +7,7 @@ import TableRowDefault from 'components/molecules/TableRowDefault/TableRowDefaul
 import { LoadingStatuses } from 'utils/const'
 import configureStore from 'store/configureStore'
 import { Provider } from 'react-redux'
-import TableCheckbox from 'components/organisms/TableCheckbox/TableCheckbox'
+import TableCheckbox from 'components/atoms/TableCheckbox/TableCheckbox'
 
 const store = configureStore()
 

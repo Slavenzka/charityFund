@@ -4,10 +4,12 @@ import { useMemo } from 'react'
 import Page404 from 'Pages/Page404/Page404'
 import UseIntersectionObserver from 'Pages/UseIntersectionObserver/UseIntersectionObserver'
 import TableExamples from 'Pages/TableExamples/TableExamples'
+import AnimationProviderExample from 'Pages/AnimationProviderExample/AnimationProviderExample'
 
 export const HOME_PAGE = `/`
 export const INTERSECTION = `/intersection`
 export const TABLES = `/tables`
+export const ANIMATION_PROVIDER = `/animation`
 const ALL_UNKNOWN = `*`
 
 export const RoutesDescription = [
@@ -25,6 +27,16 @@ export const RoutesDescription = [
     path: INTERSECTION,
     Component: UseIntersectionObserver,
     label: `useIntersectionObserver`
+  },
+  {
+    path: INTERSECTION,
+    Component: UseIntersectionObserver,
+    label: `useIntersectionObserver`
+  },
+  {
+    path: ANIMATION_PROVIDER,
+    Component: AnimationProviderExample,
+    label: `AnimationProvider example`
   },
   {
     path: ALL_UNKNOWN,

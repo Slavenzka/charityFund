@@ -1,7 +1,7 @@
 import ComponentRenderTemplateStory from 'stories/ComponentRenderTemplateStory/ComponentRenderTemplateStory'
 import StoryTemplate from 'stories/StoryTemplate/StoryTemplate'
 import TableRowDefault from 'components/molecules/TableRowDefault/TableRowDefault'
-import TableCheckbox from 'components/organisms/TableCheckbox/TableCheckbox'
+import TableCheckbox from 'components/atoms/TableCheckbox/TableCheckbox'
 import { nanoid } from 'nanoid'
 import css from 'stories/styles/modules/TableRowDefault.module.scss'
 

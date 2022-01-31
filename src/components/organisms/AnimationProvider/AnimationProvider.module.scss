@@ -1,6 +1,0 @@
-// Check that default css class of animated block
-// doesn't have "display: block" otherwise mutation observer
-// will not fire
-.elementRendered {
-  display: block;
-}

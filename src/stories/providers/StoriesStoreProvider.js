@@ -30,7 +30,8 @@ const INITIAL_STATE = {
   textarea: `Some content for the textarea field to fill as much space as possible lorem ipsum lalala for the god's sake`,
   table: {
     selection: []
-  }
+  },
+  isVisible: false
 }
 
 const storiesReducer = produce((draft, {type, payload}) => {
@@ -59,6 +60,10 @@ const storiesReducer = produce((draft, {type, payload}) => {
     }
     case UPDATE_TABLE_SELECTED_ITEMS: {
       draft.table.selection = payload
+      return draft
+    }
+    case `TOGGLE_STORIES_ITEM_VISIBILITY`: {
+      draft.isVisible = !draft.isVisible
       return draft
     }
     default:
@@ -97,12 +102,19 @@ function StoriesStoreProvider ({children}) {
     })
   }, [])
   
+  const toggleTargetVisibility = useCallback(() => {
+    dispatch({
+      type: `TOGGLE_STORIES_ITEM_VISIBILITY`,
+    })
+  }, [])
+  
   return children({
     store,
     updateDate,
     updateRange,
     updateSelectSync,
-    updateTextarea
+    updateTextarea,
+    toggleTargetVisibility
   })
 }
 

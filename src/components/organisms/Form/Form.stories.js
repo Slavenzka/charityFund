@@ -2,7 +2,7 @@ import ComponentRenderTemplateStory from 'stories/ComponentRenderTemplateStory/C
 import StoryTemplate from 'stories/StoryTemplate/StoryTemplate'
 import Form from 'components/organisms/Form/Form'
 import { FormElements } from 'utils/const'
-import { InputTypes, InputVariants } from 'components/atoms/Input/Input'
+import { InputTypes } from 'components/atoms/Input/Input'
 import configureStore from 'store/configureStore'
 import { Provider } from 'react-redux'
 
