@@ -5,11 +5,13 @@ import Page404 from 'Pages/Page404/Page404'
 import UseIntersectionObserver from 'Pages/UseIntersectionObserver/UseIntersectionObserver'
 import TableExamples from 'Pages/TableExamples/TableExamples'
 import AnimationProviderExample from 'Pages/AnimationProviderExample/AnimationProviderExample'
+import ClickOutsideDemo from 'Pages/ClickOutsideDemo/ClickOutsideDemo'
 
 export const HOME_PAGE = `/`
 export const INTERSECTION = `/intersection`
 export const TABLES = `/tables`
 export const ANIMATION_PROVIDER = `/animation`
+export const CLICK_OUTSIDE_DEMO = `/clickOutside`
 const ALL_UNKNOWN = `*`
 
 export const RoutesDescription = [
@@ -37,6 +39,11 @@ export const RoutesDescription = [
     path: ANIMATION_PROVIDER,
     Component: AnimationProviderExample,
     label: `AnimationProvider example`
+  },
+  {
+    path: CLICK_OUTSIDE_DEMO,
+    Component: ClickOutsideDemo,
+    label: `ClickOutside hook`
   },
   {
     path: ALL_UNKNOWN,

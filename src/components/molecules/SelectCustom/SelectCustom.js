@@ -43,6 +43,7 @@ function SelectCustom ({
     return (
       <div
         className={css.option}
+        data-select-option="true"
         {...innerProps}
       >
         { children }
