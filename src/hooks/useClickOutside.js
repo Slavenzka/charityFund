@@ -4,12 +4,14 @@ function useClickOutside ({handleClickOutside}) {
   const targetRef = useRef(null)
   
   const handleClick = useCallback(evt => {
-    const isClickedInsideTarget = targetRef.current.contains(evt.target)
-    // react-select options are a special case due to the way these options are rendered
-    const isClickedSelectOption = evt.target.dataset?.selectOption
-    
-    if (!isClickedInsideTarget && !isClickedSelectOption && handleClickOutside) {
-      handleClickOutside()
+    if (targetRef.current) {
+      const isClickedInsideTarget = targetRef.current.contains(evt.target)
+      // react-select options are a special case due to the way these options are rendered
+      const isClickedSelectOption = evt.target.dataset?.selectOption
+      
+      if (!isClickedInsideTarget && !isClickedSelectOption && handleClickOutside) {
+        handleClickOutside()
+      }
     }
   }, [handleClickOutside])
   

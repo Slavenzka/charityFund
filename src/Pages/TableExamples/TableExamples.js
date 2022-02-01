@@ -8,6 +8,9 @@ import { LoadingStatuses } from 'utils/const'
 import TableCheckbox from 'components/atoms/TableCheckbox/TableCheckbox'
 import TableRowDefault from 'components/molecules/TableRowDefault/TableRowDefault'
 import DummyController from 'components/organisms/DummyController/DummyController'
+import Filter from 'components/organisms/Filter/Filter'
+import { filterConfig } from 'Pages/TableExamples/_assets/filter'
+import classnames from 'classnames'
 
 function TableExamples () {
   const data = tableData
@@ -87,6 +90,10 @@ function TableExamples () {
         label: `Статус`,
         value: `status`,
       },
+      {
+        label: `Пол`,
+        value: `gender`,
+      },
     ]
   }
   
@@ -96,12 +103,42 @@ function TableExamples () {
         <Heading style={{margin: `1.5rem 0`}}>
           Examples of application of Table component with various configs
         </Heading>
-        <Table
-          className={css.table}
-          tableConfig={tableConfig}
+        <Filter
           data={data}
-          loadingStatus={LoadingStatuses.SUCCESS}
-        />
+          config={filterConfig}
+        >
+          {({singleValueFilter, handleFilterSingleValue, filteredData, resetFilter}) => (
+            <>
+              {Object.entries(singleValueFilter).map(([field, queries]) => queries.map(({query, label, isApplied}) => (
+                <button
+                  onClick={() => handleFilterSingleValue({
+                    value: query,
+                    field
+                  })}
+                  className={classnames({
+                    [css.buttonActive]: isApplied
+                  })}
+                  type="button"
+                  key={query}
+                >
+                  {label}
+                </button>
+              )))}
+              <button
+                onClick={resetFilter}
+                type="button"
+              >
+                Reset filter
+              </button>
+              <Table
+                className={css.table}
+                tableConfig={tableConfig}
+                data={filteredData}
+                loadingStatus={LoadingStatuses.SUCCESS}
+              />
+            </>
+          )}
+        </Filter>
       </Container>
     </section>
   )
