@@ -8,6 +8,7 @@ import { LoadingStatuses } from 'utils/const'
 import configureStore from 'store/configureStore'
 import { Provider } from 'react-redux'
 import TableCheckbox from 'components/atoms/TableCheckbox/TableCheckbox'
+import Input from 'components/atoms/Input/Input'
 
 const store = configureStore()
 
@@ -983,7 +984,7 @@ const list = [
       },
       {
         label: \`ID\`,
-        value: \`id\`,
+        value: \`id\`
       },
       {
         label: \`Имя\`,
@@ -1000,7 +1001,90 @@ const list = [
       {
         label: \`Статус\`,
         value: \`status\`
+      }
+    ]
+  }}
+  loadingStatus={LoadingStatuses.SUCCESS}
+/>
+`
+    )
+  },
+  {
+    heading: `Table with custom cell content`,
+    component: (
+      <Table
+        data={data}
+        tableConfig={{
+          columns: [
+            {
+              label: `ID`,
+              value: `id`,
+            },
+            {
+              label: `Имя`,
+              value: `name`
+            },
+            {
+              label: `Почта`,
+              value: `email`,
+              adapter: function (rowData) {
+                return (
+                  <Input
+                    label="Update email"
+                    value={rowData[this.value]}
+                    onChange={() => alert(`Dummy input handler, cause devs are lazy`)}
+                  />
+                )
+              }
+            },
+            {
+              label: `Телефон`,
+              value: `phone`
+            },
+            {
+              label: `Статус`,
+              value: `status`
+            },
+          ]
+        }}
+        loadingStatus={LoadingStatuses.SUCCESS}
+      />
+    ),
+    code: (
+`
+<Table
+  data={data}
+  tableConfig={{
+    columns: [
+      {
+        label: \`ID\`,
+        value: \`id\`
       },
+      {
+        label: \`Имя\`,
+        value: \`name\`
+      },
+      {
+        label: \`Почта\`,
+        value: \`email\`,
+        adapter: function (rowData) {
+          return (
+            <Input
+              label="Update email"
+              value={rowData[this.value]}
+              onChange={() => alert(\`Dummy input handler, cause devs are lazy\`)}
+            />
+          )
+        }
+      },
+      {
+        label: \`Телефон\`,
+        value: \`phone\`
+      },
+      {
+        label: \`Статус\`,
+        value: \`status\`
+      }
     ]
   }}
   loadingStatus={LoadingStatuses.SUCCESS}

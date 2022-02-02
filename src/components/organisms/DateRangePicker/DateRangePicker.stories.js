@@ -184,25 +184,36 @@ DateRangePicker.propTypes = {
   */
   className: PropTypes.string,
   /*
+  * Optional component to replace default input field for indicating selected range and toggling range picker
+  */
+  CustomTrigger: PropTypes.elementType,
+  /*
   * Error message from form state manager
   */
   error: PropTypes.string,
-  /*
-  * Label text for the trigger input
-  */
-  label: PropTypes.string,
   /*
   * State update function
   */
   onChange: PropTypes.func,
   /*
+  * Label text for the trigger input
+  */
+  label: PropTypes.string,
+  /*
   * Received the {from, to} state and returns the string that becomes the value of trigger input
   */
   inputValueFormatter: PropTypes.func,
   /*
-  * Actual value from state in the form of timestamp or null in no default value was provided
+  * Toggles application of "is required" properties
   */
-  value: PropTypes.number,
+  isRequired: PropTypes.bool,
+  /*
+  * Actual value from state
+  */
+  value: PropTypes.shape({
+    from: PropTypes.number,
+    to: PropTypes.number
+  }),
 }
 `
       )}

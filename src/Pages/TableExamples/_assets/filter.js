@@ -4,12 +4,10 @@ export const filterConfig = {
       {
         label: `Status OK`,
         query: [`OK`],
-        isApplied: false
       },
       {
         label: `Status FAILED`,
         query: [`FAIL`],
-        isApplied: false
       },
     ],
     gender: [
@@ -22,5 +20,20 @@ export const filterConfig = {
         query: [`Female`],
       },
     ]
+  },
+  multiValueFilterConfig: [
+    {
+      label: `Search by status`,
+      field: `status`
+    },
+    {
+      label: `Search by email`,
+      field: `email`
+    },
+  ],
+  dateRangeFilterConfig: {
+    field: `createdAt`,
+    from: null,
+    to: null
   },
 }

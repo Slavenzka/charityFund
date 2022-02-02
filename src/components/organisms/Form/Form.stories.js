@@ -6,36 +6,6 @@ import { InputTypes } from 'components/atoms/Input/Input'
 import configureStore from 'store/configureStore'
 import { Provider } from 'react-redux'
 
-const formConfig = {
-  login: {
-    element: FormElements.INPUT,
-    name: `login`,
-    defaultValue: `test@test.test`,
-    label: `Test label`
-  },
-  description: {
-    element: FormElements.INPUT,
-    name: `description`,
-    defaultValue: `Once upon a time in a far far galaxy...`,
-    label: `Some label for the textarea`,
-    type: InputTypes.TEXTAREA
-  },
-  images: {
-    element: FormElements.INPUT_IMAGE,
-    name: `images`,
-  },
-  comment: {
-    element: FormElements.TEXT_AREA_VARIABLE_HEIGHT,
-    name: `comment`,
-    label: `Textarea with var height`,
-  },
-  agreement: {
-    element: FormElements.INPUT_CHECKBOX,
-    name: `agreement`,
-    label: `Textarea with var height`,
-  },
-}
-
 const store = configureStore()
 
 const list = [
@@ -43,12 +13,45 @@ const list = [
     heading: `Form example`,
     component: (
       <Form
-        formConfig={Object.values(formConfig)}
-        submitForm={() => alert(`Form submitted!`)}
+        submitForm={data => console.log(data)}
+        formConfig={Object.values({
+          login: {
+            element: FormElements.INPUT,
+            name: `login`,
+            defaultValue: `test@test.test`,
+            label: `Test label`
+          },
+          description: {
+            element: FormElements.INPUT,
+            name: `description`,
+            defaultValue: `Once upon a time in a far far galaxy...`,
+            label: `Some label for the textarea`,
+            type: InputTypes.TEXTAREA
+          },
+          images: {
+            element: FormElements.INPUT_IMAGE,
+            name: `images`,
+          },
+          comment: {
+            element: FormElements.TEXT_AREA_VARIABLE_HEIGHT,
+            name: `comment`,
+            label: `Textarea with var height`,
+          },
+          agreement: {
+            element: FormElements.INPUT_CHECKBOX,
+            name: `agreement`,
+            label: `I need your boots, your shoes and your motorcycle. Please.`,
+          },
+        })}
       >
         {({items}) => (
           <div style={{paddingLeft: `5rem`}}>
             {items}
+            <button
+              type="submit"
+            >
+              Submit
+            </button>
           </div>
         )}
       </Form>
@@ -56,12 +59,45 @@ const list = [
     code: (
 `
 <Form
-  formConfig={formConfig}
-  submitForm={() => alert(\`Form submitted!\`)}
+  submitForm={data => console.log(data)}
+  formConfig={Object.values({
+    login: {
+      element: FormElements.INPUT,
+      name: \`login\`,
+      defaultValue: \`test@test.test\`,
+      label: \`Test label\`
+    },
+    description: {
+      element: FormElements.INPUT,
+      name: \`description\`,
+      defaultValue: \`Once upon a time in a far far galaxy...\`,
+      label: \`Some label for the textarea\`,
+      type: InputTypes.TEXTAREA
+    },
+    images: {
+      element: FormElements.INPUT_IMAGE,
+      name: \`images\`
+    },
+    comment: {
+      element: FormElements.TEXT_AREA_VARIABLE_HEIGHT,
+      name: \`comment\`,
+      label: \`Textarea with var height\`
+    },
+    agreement: {
+      element: FormElements.INPUT_CHECKBOX,
+      name: \`agreement\`,
+      label: \`I need your boots, your shoes and your motorcycle. Please.\`
+    }
+  })}
 >
   {({items}) => (
     <div style={{paddingLeft: \`5rem\`}}>
       {items}
+      <button
+        type="submit"
+      >
+        Submit
+      </button>
     </div>
   )}
 </Form>

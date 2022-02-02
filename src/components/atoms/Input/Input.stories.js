@@ -75,10 +75,9 @@ const listCheckbox = [
     heading: `Variant Checkbox checked`,
     component: (
       <Input
-        checked={true}
         onChange={() => {}}
-        type={InputTypes.CHECKBOX}
         variant={InputVariants.CHECKBOX_DEFAULT}
+        checked
       />
     ),
     code: (
@@ -86,7 +85,6 @@ const listCheckbox = [
 <Input
   checked={true}
   onChange={() => {}}
-  type={InputTypes.CHECKBOX}
   variant={InputVariants.CHECKBOX_DEFAULT}
 />
 `
@@ -98,7 +96,6 @@ const listCheckbox = [
       <Input
         checked={false}
         onChange={() => {}}
-        type={InputTypes.CHECKBOX}
         variant={InputVariants.CHECKBOX_DEFAULT}
       />
     ),
@@ -107,7 +104,6 @@ const listCheckbox = [
 <Input
   checked={false}
   onChange={() => {}}
-  type={InputTypes.CHECKBOX}
   variant={InputVariants.CHECKBOX_DEFAULT}
 />
 `

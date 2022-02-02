@@ -1,26 +1,23 @@
-import { memo, useMemo, useState } from 'react'
-import PropTypes from 'prop-types'
+import StoryTemplate from 'stories/StoryTemplate/StoryTemplate'
+import TabsController from 'components/organisms/controllers/TabsController/TabsController'
 
-function TabsController ({
-  children,
-  defaultTabID,
-  tabsConfig
-}) {
-  const defaultTab = useMemo(() => {
-    return defaultTabID
-      ? tabsConfig.find(item => item.id === defaultTabID) || tabsConfig[0]
-      : tabsConfig[0]
-  }, [defaultTabID, tabsConfig])
-  
-  const [activeTab, setActiveTab] = useState(defaultTab)
-  
-  return children({
-    tabsConfig,
-    activeTab,
-    onTabClick: setActiveTab
-  })
-}
+export const Usage = () => null
 
+export default {
+  title: `Components/Organisms/TabsController`,
+  component: TabsController,
+  decorators: [story => (
+    <StoryTemplate
+      story={story}
+      componentName={`TabsController`}
+      componentDescription={(
+        <>
+          A wrapper that contains local state for tabs management based on input config array. Return render function for
+          child components with args to get and update the state.
+        </>
+      )}
+      proptypesString={(
+`
 TabsController.propTypes = {
   /**
   * Definition of single tab config object
@@ -66,5 +63,8 @@ TabsController.propTypes = {
     })
   )
 }
-
-export default memo(TabsController)
+`
+      )}
+    />
+  )]
+}

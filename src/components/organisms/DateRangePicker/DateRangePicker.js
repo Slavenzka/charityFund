@@ -19,37 +19,36 @@ function DateRangePicker ({
 }) {
   const {
     from,
-    to
+    to,
   } = value || {}
   
   const [isOpen, setOpenStatus] = useState(false)
-  const [range, setRange] = useState({
-    from: from ?? null,
-    to: to ?? null
-  })
   
-  const highlightedDates = getCalendarHighlightedDates(range)
+  const highlightedDates = getCalendarHighlightedDates(value)
   
   const inputValue = useMemo(() => {
-    if (inputValueFormatter) return inputValueFormatter(range)
+    if (inputValueFormatter) return inputValueFormatter(value)
     
-    return getCalendarRangeValue(range)
-  }, [range, inputValueFormatter])
+    return getCalendarRangeValue(value)
+  }, [value, inputValueFormatter])
   
   const handleChangeRange = useCallback((timestamp, rangePoint) => {
-    setRange(prevState => ({
-      ...prevState,
+    onChange({
+      ...value,
       [rangePoint]: timestamp
-    }))
-  }, [])
+    })
+  }, [onChange, value])
   
   const toggleOpenStatus = useCallback(() => {
     setOpenStatus(prevState => !prevState)
   }, [])
   
   useEffect(() => {
-    onChange(range)
-  }, [onChange, range])
+    onChange({
+      from,
+      to
+    })
+  }, [onChange, from, to])
   
   return (
     <OverlayClickOutside
@@ -65,7 +64,7 @@ function DateRangePicker ({
           {CustomTrigger
             ? (
               <CustomTrigger
-                value={range}
+                value={value}
                 onClick={toggleOpenStatus}
                 isRequired={isRequired}
                 error={error}
@@ -88,7 +87,7 @@ function DateRangePicker ({
             })}
           >
             <DatePicker
-              selected={range.from}
+              selected={from}
               dateFormat={`dd/MMM/yyyy HH:mm`}
               customInput={<Fragment />}
               peekNextMonth
@@ -104,7 +103,7 @@ function DateRangePicker ({
             />
             <DatePicker
               className={css.to}
-              selected={range.to}
+              selected={to}
               dateFormat={`dd/MMM/yyyy HH:mm`}
               customInput={<Fragment />}
               peekNextMonth
@@ -131,21 +130,29 @@ DateRangePicker.propTypes = {
   */
   className: PropTypes.string,
   /*
+  * Optional component to replace default input field for indicating selected range and toggling range picker
+  */
+  CustomTrigger: PropTypes.elementType,
+  /*
   * Error message from form state manager
   */
   error: PropTypes.string,
-  /*
-  * Label text for the trigger input
-  */
-  label: PropTypes.string,
   /*
   * State update function
   */
   onChange: PropTypes.func,
   /*
+  * Label text for the trigger input
+  */
+  label: PropTypes.string,
+  /*
   * Received the {from, to} state and returns the string that becomes the value of trigger input
   */
   inputValueFormatter: PropTypes.func,
+  /*
+  * Toggles application of "is required" properties
+  */
+  isRequired: PropTypes.bool,
   /*
   * Actual value from state
   */

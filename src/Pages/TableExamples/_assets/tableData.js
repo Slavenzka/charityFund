@@ -7,7 +7,8 @@ export const tableData = [
     email: `john@doe.com`,
     phone: `11111111111`,
     status: `OK`,
-    gender: `Male`
+    gender: `Male`,
+    createdAt: Date.now()
   },
   {
     id: nanoid(7),
@@ -15,7 +16,8 @@ export const tableData = [
     email: `jane@doe.com`,
     phone: `22222222222222`,
     status: `FAIL`,
-    gender: `Female`
+    gender: `Female`,
+    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 30
   },
   {
     id: nanoid(7),
@@ -23,6 +25,7 @@ export const tableData = [
     email: `billy@bob.com`,
     phone: `333333333`,
     status: `OK`,
-    gender: `Male`
+    gender: `Male`,
+    createdAt: Date.now() + 2 * 1000 * 60 * 60 * 24 * 30
   },
 ]

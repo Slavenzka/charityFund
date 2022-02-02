@@ -5,37 +5,35 @@ import IconArrow from 'assets/icons/IconArrow'
 import css from 'stories/styles/modules/TabItem.module.scss'
 import TabsController from 'components/organisms/controllers/TabsController/TabsController'
 
-const tabsConfig = [
-  {
-    id: 0,
-    label: `Tab #1`,
-    Component: () => <div>Component for Tab#1</div>
-  },
-  {
-    id: 1,
-    label: `Tab #2`,
-    Component: () => <div>Component for Tab#2</div>
-  },
-  {
-    id: 2,
-    label: (
-      <>
-          <span>
-            Tab #3
-          </span>
-        <IconArrow className={css.icon} />
-      </>
-    ),
-    Component: () => <div>Component for Tab#3</div>
-  },
-]
-
 const list = [
   {
     heading: `Default variant`,
     component: (
       <TabsController
-        tabsConfig={tabsConfig}
+        tabsConfig={[
+          {
+            id: 0,
+            label: `Tab #1`,
+            Component: () => <div>Component for Tab#1</div>
+          },
+          {
+            id: 1,
+            label: `Tab #2`,
+            Component: () => <div>Component for Tab#2</div>
+          },
+          {
+            id: 2,
+            label: (
+              <>
+          <span>
+            Tab #3
+          </span>
+                <IconArrow className={css.icon} />
+              </>
+            ),
+            Component: () => <div>Component for Tab#3</div>
+          },
+        ]}
       >
         {({tabsConfig, activeTab, onTabClick}) => (
           <>
@@ -60,7 +58,30 @@ const list = [
     code: (
 `
 <TabsController
-  tabsConfig={tabsConfig}
+  tabsConfig={[
+    {
+      id: 0,
+      label: \`Tab #1\`,
+      Component: () => <div>Component for Tab#1</div>
+    },
+    {
+      id: 1,
+      label: \`Tab #2\`,
+      Component: () => <div>Component for Tab#2</div>
+    },
+    {
+      id: 2,
+      label: (
+        <>
+          <span>
+            Tab #3
+          </span>
+          <IconArrow className={css.icon} />
+        </>
+      ),
+      Component: () => <div>Component for Tab#3</div>
+    }
+  ]}
 >
   {({tabsConfig, activeTab, onTabClick}) => (
     <>
@@ -97,7 +118,7 @@ export default {
       componentName={`Tabs`}
       componentDescription={(
         <>
-          A component description
+          Renders tabs with state and click handler provided from outside. Expected to be used inside TabsController wrapper.
         </>
       )}
       proptypesString={(
