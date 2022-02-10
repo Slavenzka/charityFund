@@ -65,7 +65,7 @@ function useFilterSingleValue ({
   
   return {
     singleValueFilter,
-    resetSingleValueFilter,
+    resetSingleValueFilter: singleValueFilter ? resetSingleValueFilter : null,
     updateSingleValueFilter,
     applySingleValueFilter
   }

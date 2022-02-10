@@ -14,6 +14,9 @@ function useFilterMultiValue ({data, multiValueFilterConfig}) {
   } = filterHelpers
   
   useEffect(() => {
+    if (!multiValueFilterConfig) return null
+    console.log(multiValueFilterConfig)
+    
     if (!multiValueFilter) {
       const filter = multiValueFilterConfig.reduce((total, {field, label}) => {
         const uniqueFieldValues = new Set(data.map(({[field]: fieldValue}) => fieldValue))
@@ -93,7 +96,7 @@ function useFilterMultiValue ({data, multiValueFilterConfig}) {
   
   return {
     multiValueFilter,
-    resetMultiValueFilter,
+    resetMultiValueFilter: multiValueFilter ? resetMultiValueFilter : null,
     updateMultiValueFilter,
     applyMultiValueFilter
   }

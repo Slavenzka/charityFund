@@ -261,7 +261,7 @@ Table.propTypes = {
       * Contains the key of the data property from row data object to be used for cell generation
       */
       value: PropTypes.string,
-    }))
+    })).isRequired
   }),
   /*
   * Applies style presets

@@ -1,3 +1,5 @@
+import { getSimplifiedDateTimestamp } from 'utils/index'
+
 export function areAllValuesInsideQuery ({query, value}) {
   if (!Array.isArray(query) || !Array.isArray(value) || value.length === 0) return false
   
@@ -61,12 +63,13 @@ export const filterHelpers = {
       const isFieldExists = item?.[field]
       
       if (!isFieldExists) return false
+      const itemValue = getSimplifiedDateTimestamp(item[field])
   
-      if (from && !to) return item[field] >= from
+      if (from && !to) return itemValue >= getSimplifiedDateTimestamp(from)
   
-      if (!from && to) return item[field] <= to
+      if (!from && to) return itemValue <= getSimplifiedDateTimestamp(to)
   
-      if (from && to) return item[field] >= from && item[field] <= to
+      if (from && to) return itemValue >= getSimplifiedDateTimestamp(from) && itemValue <= getSimplifiedDateTimestamp(to)
   
       return true
     }

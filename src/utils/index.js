@@ -108,6 +108,15 @@ export function getCalendarRangeValue ({from, to}) {
   return ``
 }
 
+export function getSimplifiedDateTimestamp (timestamp) {
+  const date = new Date(timestamp)
+  const year = date.getFullYear()
+  const month = date.getMonth()
+  const day = date.getDay()
+  
+  return new Date(year, month, day)
+}
+
 let throttleTimer = false
 
 export const throttle = (callback, time) => {

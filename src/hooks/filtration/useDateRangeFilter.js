@@ -28,6 +28,8 @@ function useDateRangeFilter ({
   }, [])
   
   const applyDateRangeFilter = useCallback(data => {
+    if (!dateRangeFilter) return null
+    
     return data.filter(item => checkItemFiltration({
       item,
       filter: dateRangeFilter
@@ -36,7 +38,7 @@ function useDateRangeFilter ({
   
   return {
     dateRangeFilter,
-    resetDateRangeFilter,
+    resetDateRangeFilter: dateRangeFilter ? resetDateRangeFilter : null,
     updateDateRangeFilter,
     applyDateRangeFilter
   }
