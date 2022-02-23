@@ -1,12 +1,19 @@
 @import "styles/mixins";
 
 .wrapper {
+  --icon-search-size: 1.5rem;
   position: relative;
   display: flex;
   flex-wrap: wrap;
 }
 
 .wrapperRequired {
+}
+
+.wrapperSearch {
+  .input {
+    padding-left: calc(1rem + var(--icon-search-size));
+  }
 }
 
 .input {
@@ -46,4 +53,11 @@
   left: calc(1.5rem / 10);
   width: 1.2rem;
   fill: white;
+}
+
+.iconSearch {
+  position: absolute;
+  top: calc(50% - var(--icon-search-size) / 2);
+  left: 0.5rem;
+  width: var(--icon-search-size);
 }

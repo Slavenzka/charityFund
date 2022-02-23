@@ -41,7 +41,7 @@ const list = [
             label="Datepicker label"
             onChange={updateDate}
             isRequired
-         />
+          />
         )}
       </StoriesStoreProvider>
     ),
@@ -412,7 +412,7 @@ Datepicker.propTypes = {
   /*
   * Actual value from state in the form of timestamp or null in no default value was provided
   */
-  value: PropTypes.number,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.instanceOf(Date)]),
   /*
   * Render function for external controls over state. If provided datepicker component won't call onChange on every
   * update of the selected date and will pass {date, onChange, onSubmit, onCancel} to external component.

@@ -5,10 +5,12 @@ import PropTypes from 'prop-types'
 import FormItemError from 'components/atoms/FormItemError/FormItemError'
 import InputLabel from 'components/atoms/InputLabel/InputLabel'
 import IconCheck from 'assets/icons/IconCheck'
+import IconSearch from 'assets/icons/IconSearch'
 
 export const InputVariants = {
   DEFAULT: `DEFAULT`,
-  CHECKBOX_DEFAULT: `CHECKBOX_DEFAULT`
+  CHECKBOX_DEFAULT: `CHECKBOX_DEFAULT`,
+  SEARCH: `SEARCH`
 }
 
 export const InputTypes = {
@@ -54,32 +56,34 @@ const InputDefault = memo(({
   )
   
   return (
-    <InputLabel
-      className={classnames(css.wrapper, className, {
-        [css.wrapperRequired]: isRequired,
-      })}
-      isRequired={isRequired}
-      label={label}
-    >
-      { children }
-      { input }
+    <>
+      <InputLabel
+        className={classnames(css.wrapper, className, {
+          [css.wrapperRequired]: isRequired,
+        })}
+        isRequired={isRequired}
+        label={label}
+      >
+        { children }
+        { input }
+      </InputLabel>
       {error && <FormItemError message={error} />}
-    </InputLabel>
+    </>
   )
 })
 
 function Input ({
   checked,
+  className,
   variant = InputVariants.DEFAULT,
   ...restProps
 }) {
   switch (variant) {
     case InputVariants.CHECKBOX_DEFAULT: {
-      // console.log(restProps)
       return (
         <InputDefault
           checked={checked}
-          className={classnames(css.checkboxDefault, {
+          className={classnames(css.checkboxDefault, className, {
             [css.checkboxDefaultChecked]: Boolean(checked)
           })}
           type={InputTypes.CHECKBOX}
@@ -89,9 +93,20 @@ function Input ({
         </InputDefault>
       )
     }
+    case InputVariants.SEARCH: {
+      return (
+        <InputDefault
+          className={classnames(className, css.wrapperSearch)}
+          {...restProps}
+        >
+          <IconSearch className={css.iconSearch} />
+        </InputDefault>
+      )
+    }
     default:
       return (
         <InputDefault
+          className={className}
           {...restProps}
         />
       )

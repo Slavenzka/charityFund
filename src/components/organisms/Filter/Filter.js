@@ -54,7 +54,6 @@ function Filter ({
   
   useEffect(() => {
     if (!isFiltering.current) {
-      console.log(1)
       isFiltering.current = true
       new Promise(resolve => {
         if (!singleValueFilter) resolve(data)

@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useEffect, useMemo, useState } from 'react'
+import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import css from './Datepicker.module.scss'
 import Input from 'components/atoms/Input/Input'
 import classnames from 'classnames'
@@ -27,7 +27,9 @@ function Datepicker ({
 }) {
   const [date, setDate] = useState(value)
   const [open, setOpen] = useState(false)
+  const valueRef = useRef(value)
   
+  const isFilterReset = valueRef.current && !value
   const isSingleTimepicker = isHoursPickRequired && !isMinutesPickRequired
   const isNotTimepicker = !isHoursPickRequired
   
@@ -96,10 +98,17 @@ function Datepicker ({
   }, [value])
   
   useEffect(() => {
-    if (date !== value && !renderCustomControls) {
+    if (!isFilterReset && date !== value && !renderCustomControls) {
       onChange(date)
     }
-  }, [date, value, onChange, renderCustomControls])
+  }, [date, value, onChange, renderCustomControls, isFilterReset])
+  
+  useEffect(() => {
+    if (isFilterReset) {
+      setDate(value)
+    }
+    valueRef.current = value
+  }, [isFilterReset, value])
   
   return (
     <div
@@ -241,7 +250,7 @@ Datepicker.propTypes = {
   /*
   * Actual value from state in the form of timestamp or null in no default value was provided
   */
-  value: PropTypes.number,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.instanceOf(Date)]),
   /*
   * Render function for external controls over state. If provided datepicker component won't call onChange on every
   * update of the selected date and will pass {date, onChange, onSubmit, onCancel} to external component.

@@ -11,6 +11,7 @@ import { getFormattedDate } from 'utils'
 import { Fragment } from 'react'
 import Heading, { HeadingTypes } from 'components/atoms/Heading/Heading'
 import Input, { InputVariants } from 'components/atoms/Input/Input'
+import Datepicker from 'components/organisms/Datepicker/Datepicker'
 
 const tableData = [
   {
@@ -457,6 +458,93 @@ const list = [
             value={dateRangeFilter}
             onChange={updateDateRangeFilter}
             label="Filter date range"
+          />
+        </div>
+        <button
+          onClick={resetFilter}
+          type="button"
+        >
+          Reset filter
+        </button>
+        <Table
+          className={css.table}
+          tableConfig={tableConfig}
+          data={filteredData}
+          loadingStatus={LoadingStatuses.SUCCESS}
+        />
+      </>
+  )}
+</Filter>
+`
+    )
+  },
+  {
+    heading: `Table example w/ single date filter`,
+    component: (
+      <Filter
+        data={tableData}
+        config={{
+          dateRangeFilterConfig: {
+            field: `createdAt`,
+            isSingleDate: true,
+            date: new Date(2022, 0, 17)
+          },
+        }}
+      >
+        {
+          ({
+            filteredData,
+            dateRangeFilter,
+            updateDateRangeFilter,
+            resetFilter
+          }) => (
+            <>
+              <div>
+                <Datepicker
+                  value={dateRangeFilter.date}
+                  onChange={updateDateRangeFilter}
+                />
+              </div>
+              <button
+                onClick={resetFilter}
+                type="button"
+              >
+                Reset filter
+              </button>
+              <Table
+                className={css.table}
+                tableConfig={tableConfig}
+                data={filteredData}
+                loadingStatus={LoadingStatuses.SUCCESS}
+              />
+            </>
+        )}
+      </Filter>
+    ),
+    code: (
+`
+<Filter
+  data={tableData}
+  config={{
+    dateRangeFilterConfig: {
+      field: \`createdAt\`,
+      isSingleDate: true,
+      date: null
+    }
+  }}
+>
+  {
+    ({
+      filteredData,
+      dateRangeFilter,
+      updateDateRangeFilter,
+      resetFilter
+    }) => (
+      <>
+        <div>
+          <Datepicker
+            value={dateRangeFilter.date}
+            onChange={updateDateRangeFilter}
           />
         </div>
         <button

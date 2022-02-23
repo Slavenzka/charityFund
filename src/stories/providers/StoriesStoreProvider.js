@@ -31,7 +31,8 @@ const INITIAL_STATE = {
   table: {
     selection: []
   },
-  isVisible: false
+  isVisible: false,
+  filteredList: null
 }
 
 const storiesReducer = produce((draft, {type, payload}) => {
@@ -64,6 +65,10 @@ const storiesReducer = produce((draft, {type, payload}) => {
     }
     case `TOGGLE_STORIES_ITEM_VISIBILITY`: {
       draft.isVisible = !draft.isVisible
+      return draft
+    }
+    case `UPDATE_FILTERED_LIST_SELECTION`: {
+      draft.filteredList = payload
       return draft
     }
     default:
@@ -108,13 +113,21 @@ function StoriesStoreProvider ({children}) {
     })
   }, [])
   
+  const updateFilteredListSelection = useCallback(list => {
+    dispatch({
+      type: `UPDATE_FILTERED_LIST_SELECTION`,
+      payload: list
+    })
+  }, [])
+  
   return children({
     store,
     updateDate,
     updateRange,
     updateSelectSync,
     updateTextarea,
-    toggleTargetVisibility
+    toggleTargetVisibility,
+    updateFilteredListSelection
   })
 }
 

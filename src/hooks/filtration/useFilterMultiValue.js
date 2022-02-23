@@ -15,7 +15,6 @@ function useFilterMultiValue ({data, multiValueFilterConfig}) {
   
   useEffect(() => {
     if (!multiValueFilterConfig) return null
-    console.log(multiValueFilterConfig)
     
     if (!multiValueFilter) {
       const filter = multiValueFilterConfig.reduce((total, {field, label}) => {

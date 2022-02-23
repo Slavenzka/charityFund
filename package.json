@@ -71,6 +71,7 @@
     "jsdoc": "^3.6.10",
     "nanoid": "^3.2.0",
     "prop-types": "^15.8.1",
+    "react-collapse": "^5.1.1",
     "react-datepicker": "^4.6.0",
     "react-select": "^5.2.2",
     "webpack": "^5.66.0"

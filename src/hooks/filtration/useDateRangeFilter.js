@@ -5,36 +5,65 @@ function useDateRangeFilter ({
   dateRangeFilterConfig
 }) {
   const [dateRangeFilter, setDateRangeFilter] = useState(dateRangeFilterConfig)
+  
+  const {isSingleDate} = dateRangeFilter ?? {}
+  
   const {
     dateRangeFilter: {
-      checkItemFiltration
+      checkDateFiltration,
+      checkRangeFiltration
     }
   } = filterHelpers
   
   const resetDateRangeFilter = useCallback(() => {
-    setDateRangeFilter(prevState => ({
-      ...prevState,
-      from: null,
-      to: null
-    }))
-  }, [])
+    setDateRangeFilter(prevState => {
+      if (isSingleDate) {
+        return {
+          ...prevState,
+          date: null
+        }
+      }
+      
+      return {
+        ...prevState,
+        from: null,
+        to: null
+      }
+    })
+  }, [isSingleDate])
   
-  const updateDateRangeFilter = useCallback(({from, to}) => {
+  const updateDateRangeFilter = useCallback(value => {
+    if (isSingleDate) {
+      return setDateRangeFilter(prevState => ({
+        ...prevState,
+        date: value
+      }))
+    }
+    
+    const {from, to} = value
+    
     setDateRangeFilter(prevState => ({
       ...prevState,
       from,
       to
     }))
-  }, [])
+  }, [isSingleDate])
   
   const applyDateRangeFilter = useCallback(data => {
     if (!dateRangeFilter) return null
     
-    return data.filter(item => checkItemFiltration({
+    if (isSingleDate) {
+      return data.filter(item => checkDateFiltration({
+        item,
+        filter: dateRangeFilter
+      }))
+    }
+    
+    return data.filter(item => checkRangeFiltration({
       item,
       filter: dateRangeFilter
     }))
-  }, [dateRangeFilter, checkItemFiltration])
+  }, [dateRangeFilter, checkRangeFiltration, checkDateFiltration, isSingleDate])
   
   return {
     dateRangeFilter,

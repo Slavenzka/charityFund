@@ -53,7 +53,7 @@ export const filterHelpers = {
     }
   },
   dateRangeFilter: {
-    checkItemFiltration: function ({item, filter}) {
+    checkRangeFiltration: function ({item, filter}) {
       const {
         field,
         from,
@@ -72,7 +72,17 @@ export const filterHelpers = {
       if (from && to) return itemValue >= getSimplifiedDateTimestamp(from) && itemValue <= getSimplifiedDateTimestamp(to)
   
       return true
-    }
+    },
+    checkDateFiltration: function ({item, filter}) {
+      const {field, date} = filter
+      
+      if (!date) return true
+      
+      const filterTimestamp = getSimplifiedDateTimestamp(+new Date(date))
+      const itemTimestamp = getSimplifiedDateTimestamp(+new Date(item[field]))
+      
+      return +filterTimestamp === +itemTimestamp
+    },
   },
   multiValueFilter: {
     getUpdatedFilterState: function ({state, field, updatedData}) {

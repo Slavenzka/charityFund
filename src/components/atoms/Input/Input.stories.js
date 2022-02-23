@@ -68,6 +68,29 @@ const list = [
 `
     )
   },
+  {
+    heading: `Variant DEFAULT with search presets`,
+    component: (
+      <Input
+        value="Some input value"
+        onChange={() => {}}
+        label="Label text"
+        variant={InputVariants.SEARCH}
+        isRequired
+      />
+    ),
+    code: (
+`
+<Input
+  value="Some input value"
+  onChange={() => {}}
+  label="Label text"
+  variant={InputVariants.SEARCH}
+  isRequired
+/>
+`
+    )
+  },
 ]
 
 const listCheckbox = [
@@ -77,15 +100,17 @@ const listCheckbox = [
       <Input
         onChange={() => {}}
         variant={InputVariants.CHECKBOX_DEFAULT}
+        label={`Some label text`}
         checked
       />
     ),
     code: (
       `
 <Input
-  checked={true}
   onChange={() => {}}
   variant={InputVariants.CHECKBOX_DEFAULT}
+  label={\`Some label text\`}
+  checked
 />
 `
     )
@@ -96,6 +121,7 @@ const listCheckbox = [
       <Input
         checked={false}
         onChange={() => {}}
+        label={`Some label text`}
         variant={InputVariants.CHECKBOX_DEFAULT}
       />
     ),
@@ -104,7 +130,31 @@ const listCheckbox = [
 <Input
   checked={false}
   onChange={() => {}}
+  label={\`Some label text\`}
   variant={InputVariants.CHECKBOX_DEFAULT}
+/>
+`
+    )
+  },
+  {
+    heading: `Variant Checkbox w/ error message`,
+    component: (
+      <Input
+        onChange={() => {}}
+        label={`Some label text`}
+        variant={InputVariants.CHECKBOX_DEFAULT}
+        error={`Please, mark the checkbox to proceed`}
+        checked
+      />
+    ),
+    code: (
+      `
+<Input
+  checked={false}
+  onChange={() => {}}
+  label={\`Some label text\`}
+  variant={InputVariants.CHECKBOX_DEFAULT}
+  error={\`Please, mark the checkbox to proceed\`}
 />
 `
     )

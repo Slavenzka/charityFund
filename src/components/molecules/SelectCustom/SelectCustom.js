@@ -28,10 +28,7 @@ function SelectCustom ({
     const {
       children,
       innerProps,
-      isSelected
     } = props
-    
-    if (isSelected) return null
     
     if (renderCustomOption) {
       return renderCustomOption({

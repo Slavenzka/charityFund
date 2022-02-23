@@ -16,6 +16,10 @@
         }
       }
 
+      &__value-container {
+        padding: 0;
+      }
+
       &__single-value {
         color: inherit;
       }
@@ -29,6 +33,10 @@
       }
 
       &__dropdown-indicator {
+        padding: 0;
+      }
+
+      &__clear-indicator {
         padding: 0;
       }
 
