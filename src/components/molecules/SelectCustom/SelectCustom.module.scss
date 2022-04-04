@@ -1,4 +1,4 @@
-@import "styles/variables";
+@import "styles/variables/index";
 @import "styles/mixins";
 
 .wrapper {
@@ -90,6 +90,7 @@
 }
 
 .icon {
+
   height: 1.2rem;
   fill: purple;
   stroke: purple;

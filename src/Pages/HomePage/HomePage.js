@@ -4,7 +4,7 @@ import Container from 'components/templates/Container/Container'
 import { FormElements, FormErrorMessages } from 'utils/const'
 import Form from 'components/organisms/Form/Form'
 import Button from 'components/atoms/Button/Button'
-import { InputTypes } from 'components/atoms/Input/Input'
+import { InputTypes } from 'components/atoms/Input/Input.spec'
 
 function HomePage () {
   const getFormDescription = useCallback(() => {

@@ -1,7 +1,7 @@
 import { Fragment, memo } from 'react'
 import css from './TableExamples.module.scss'
 import Container from 'components/templates/Container/Container'
-import Heading, { HeadingTypes } from 'components/atoms/Heading/Heading'
+import Heading from 'components/atoms/Heading/Heading'
 import Table from 'components/molecules/Table/Table'
 import { tableData } from 'Pages/TableExamples/_assets/tableData'
 import { LoadingStatuses } from 'utils/const'
@@ -13,7 +13,9 @@ import { filterConfig } from 'Pages/TableExamples/_assets/filter'
 import classnames from 'classnames'
 import DateRangePicker from 'components/organisms/DateRangePicker/DateRangePicker'
 import { getFormattedDate } from 'utils'
-import Input, { InputVariants } from 'components/atoms/Input/Input'
+import Input from 'components/atoms/Input/Input'
+import { HeadingTypes } from 'components/atoms/Heading/Heading.spec'
+import { InputVariants } from 'components/atoms/Input/Input.spec'
 
 function TableExamples () {
   const data = tableData
@@ -40,7 +42,7 @@ function TableExamples () {
           return tableSelection && handleClick
             ? (
               <TableCheckbox
-                data={data}
+                dataLength={data.length}
                 isToggleAll
                 property={checkProperty}
                 tableSelection={tableSelection}
@@ -55,7 +57,7 @@ function TableExamples () {
             ? (
               <TableCheckbox
                 property={this.checkProperty}
-                data={data}
+                dataLength={data.length}
                 rowData={rowData}
                 tableSelection={tableSelection}
                 handleClick={handleClick}

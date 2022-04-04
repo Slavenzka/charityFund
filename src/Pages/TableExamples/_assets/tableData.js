@@ -28,4 +28,13 @@ export const tableData = [
     gender: `Male`,
     createdAt: Date.now() + 2 * 1000 * 60 * 60 * 24 * 30
   },
+  {
+    id: nanoid(7),
+    name: `Someone special`,
+    email: `someone@special.com`,
+    phone: `1111`,
+    status: `OK`,
+    gender: `Unknown`,
+    createdAt: Date.now() + 2 * 1000 * 60 * 60 * 24 * 30
+  },
 ]

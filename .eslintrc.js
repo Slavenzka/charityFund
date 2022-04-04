@@ -7,8 +7,10 @@ module.exports = {
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:react-hooks/recommended"
+        "plugin:react-hooks/recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -17,7 +19,8 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "@typescript-eslint",
     ],
     "rules": {
         "react/display-name": 0,
@@ -32,5 +35,6 @@ module.exports = {
         "react/self-closing-comp": 1,
         "no-multi-spaces": 1,
         "react/button-has-type": 1,
+        "no-unused-vars": "off",
     }
 };

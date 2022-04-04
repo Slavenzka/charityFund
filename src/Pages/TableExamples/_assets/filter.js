@@ -13,11 +13,11 @@ export const filterConfig = {
     gender: [
       {
         label: `Мужчины`,
-        query: [`Male`],
+        query: [`Male`, `Unknown`],
       },
       {
         label: `Женщины`,
-        query: [`Female`],
+        query: [`Female`, `Unknown`],
       },
     ]
   },
