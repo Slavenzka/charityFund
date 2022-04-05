@@ -14,15 +14,17 @@ const Button: FC<PropsWithChildren<ButtonProps>> = ({
   variant = ButtonVariants.DEFAULT,
   ...restProps
 }) => {
+  const heightClassName = classnames({
+    [css.buttonHeightSmall]: height === ButtonHeights.SMALL,
+    [css.buttonHeightRegular]: height === ButtonHeights.REGULAR,
+    [css.buttonHeightLarge]: height === ButtonHeights.LARGE,
+  })
+
   switch (variant) {
     default:
       return (
         <ButtonDefault
-          className={classnames(className, {
-            [css.buttonHeightSmall]: height === ButtonHeights.SMALL,
-            [css.buttonHeightRegular]: height === ButtonHeights.REGULAR,
-            [css.buttonHeightLarge]: height === ButtonHeights.LARGE,
-          })}
+          className={classnames(className, heightClassName)}
           {...restProps}
         />
       )
