@@ -2,8 +2,8 @@ import { ElementType, memo, PropsWithChildren } from 'react'
 import css from './Button.module.scss'
 import classnames from 'classnames'
 import {
-  ButtonProps,
-  ButtonTypes,
+  ButtonAsButtonProps, ButtonAsLinkProps,
+  ButtonTypes, DefaultButtonProps,
   ExtraProps
 } from 'components/atoms/Button/Button.spec'
 import { Link } from 'react-router-dom'
@@ -12,11 +12,14 @@ function ButtonDefault ({
   children,
   className,
   isDisabled,
-  isLoading,
-  type = ButtonTypes.BUTTON,
-  url,
   ...restProps
-}: PropsWithChildren<ButtonProps>): JSX.Element {
+}: PropsWithChildren<DefaultButtonProps>): JSX.Element {
+  const {
+    isLoading,
+    type = ButtonTypes.BUTTON,
+    url
+  } = restProps as ButtonAsButtonProps & ButtonAsLinkProps
+
   const isHTML: boolean = Boolean(url) &&
     typeof url === `string` &&
     (url.includes(`http`) || url.includes(`mailto:`))

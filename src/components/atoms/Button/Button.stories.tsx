@@ -84,7 +84,23 @@ export enum ButtonTypes {
   SUBMIT = \`submit\`
 }
 
-interface ButtonAsButtonProps {
+export interface ExtraButtonProps {
+  type: string
+}
+
+interface ExtraRouterLinkProps {
+  to: string
+}
+
+interface ExtraLinkProps {
+  href: string;
+  rel: \`noopener norefferer\`,
+  target: \`_blank\`
+}
+
+export type ExtraProps = ExtraButtonProps | ExtraRouterLinkProps | ExtraLinkProps
+
+export interface ButtonAsButtonProps {
   /*
   * Adds styling for the loading state of the button
   */
@@ -96,10 +112,10 @@ interface ButtonAsButtonProps {
   /*
   * Button click handler
   */
-  onClick?: () => void;
+  onClick?: ButtonClickHandlerType;
 }
 
-interface ButtonAsLinkProps {
+export interface ButtonAsLinkProps {
   /*
   * Triggers component to render a link instead of a button. If URL string contains "http" then it would be a web link,
   * and react router link otherwise.
@@ -107,19 +123,14 @@ interface ButtonAsLinkProps {
   url?: string;
 }
 
-export interface DefaultButtonProps {
-  /*
-  * The contents of button
-  */
-  children?: string | ReactElement;
-  /*
-  * Optional external class name, that would be added to button
-  */
-  className?: string;
+export interface DefaultButtonProps extends PropsWithClassName {
   /*
   * Adds styling for the disabled state of the button
   */
   isDisabled?: boolean;
+}
+
+export interface ButtonProps extends PropsWithClassName, DefaultButtonProps, ButtonAsLinkProps, ButtonAsButtonProps {
   /*
   * Triggers button height style presets
   */
@@ -129,8 +140,6 @@ export interface DefaultButtonProps {
   */
   variant?: ButtonVariants;
 }
-
-export type ButtonProps = DefaultButtonProps & Partial<ButtonAsButtonProps> & Partial<ButtonAsLinkProps>
 `
       )}
       defaultPropsString={(

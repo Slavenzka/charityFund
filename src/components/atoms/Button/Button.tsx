@@ -1,4 +1,4 @@
-import { FC, memo, PropsWithChildren } from 'react'
+import { memo, PropsWithChildren } from 'react'
 import css from './Button.module.scss'
 import classnames from 'classnames'
 import {
@@ -8,12 +8,12 @@ import {
 } from './Button.spec'
 import ButtonDefault from 'components/atoms/Button/ButtonDefault'
 
-const Button: FC<PropsWithChildren<ButtonProps>> = ({
+function Button ({
   className,
   height = ButtonHeights.REGULAR,
   variant = ButtonVariants.DEFAULT,
   ...restProps
-}) => {
+}: PropsWithChildren<ButtonProps>) {
   const heightClassName = classnames({
     [css.buttonHeightSmall]: height === ButtonHeights.SMALL,
     [css.buttonHeightRegular]: height === ButtonHeights.REGULAR,

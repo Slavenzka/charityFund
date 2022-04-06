@@ -1,4 +1,4 @@
-import { ButtonClickHandlerType } from 'specs/index.spec'
+import { ButtonClickHandlerType, PropsWithClassName } from 'specs/index.spec'
 
 export enum ButtonVariants {
   DEFAULT = `DEFAULT`
@@ -31,38 +31,37 @@ interface ExtraLinkProps {
 
 export type ExtraProps = ExtraButtonProps | ExtraRouterLinkProps | ExtraLinkProps
 
-interface ButtonAsButtonProps {
+export interface ButtonAsButtonProps {
   /*
   * Adds styling for the loading state of the button
   */
-  isLoading: boolean;
+  isLoading?: boolean;
   /*
   * Definition of button type
   */
-  type: string;
+  type?: string;
   /*
   * Button click handler
   */
-  onClick: ButtonClickHandlerType;
+  onClick?: ButtonClickHandlerType;
 }
 
-interface ButtonAsLinkProps {
+export interface ButtonAsLinkProps {
   /*
   * Triggers component to render a link instead of a button. If URL string contains "http" then it would be a web link,
   * and react router link otherwise.
   */
-  url: string;
+  url?: string;
 }
 
-export interface DefaultButtonProps {
-  /*
-  * Optional external class name, that would be added to button
-  */
-  className?: string;
+export interface DefaultButtonProps extends PropsWithClassName {
   /*
   * Adds styling for the disabled state of the button
   */
   isDisabled?: boolean;
+}
+
+export interface ButtonProps extends PropsWithClassName, DefaultButtonProps, ButtonAsLinkProps, ButtonAsButtonProps {
   /*
   * Triggers button height style presets
   */
@@ -72,5 +71,3 @@ export interface DefaultButtonProps {
   */
   variant?: ButtonVariants;
 }
-
-export type ButtonProps = DefaultButtonProps & Partial<ButtonAsButtonProps> & Partial<ButtonAsLinkProps>
