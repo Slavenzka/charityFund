@@ -1,5 +1,6 @@
 import { SelectCustomOptionType } from "components/molecules/SelectCustom/SelectCustom.spec"
 import { MouseEventHandler, ReactNode } from "react"
+import { DatepickerValueType } from 'components/organisms/Datepicker/Datepicker.spec'
 
 export interface StoreDataTypes {
   date: number;
@@ -13,17 +14,17 @@ export interface StoreDataTypes {
   };
   textarea: string;
   table: {
-    selection: any;
+    selection: string[];
   };
   isVisible: boolean;
-  filteredList: any;
+  filteredList: unknown;
 }
 
 type ActionCreatorType<T> = (argument: T) => void;
 
 interface RenderFunctionArgTypes {
   store: StoreDataTypes;
-  updateDate: (date: number) => void;
+  updateDate: (date: DatepickerValueType) => void;
   updateRange: ActionCreatorType<any>;
   updateSelectSync: ActionCreatorType<any>;
   updateTextarea: ActionCreatorType<string>

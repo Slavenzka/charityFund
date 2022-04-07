@@ -1,7 +1,11 @@
+@import "styles/variables/index";
+@import "styles/mixins";
+
 .wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
+  font-size: 0;
 }
 
 .calendars {
@@ -10,12 +14,26 @@
   left: 0;
   display: none;
   width: max-content;
+  background-color: color(white);
+  border-radius: 0.8rem;
+  overflow: hidden;
+  box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.15);
 }
 
 .calendarsOpen {
-  display: flex;
-}
+  display: grid;
+  grid-template-columns: repeat(2, var(--calendar-size));
 
-.test {
-  position: static;
+  .dateRangeStart {
+    border-top-left-radius: 0.8rem;
+    border-bottom-left-radius: 0.8rem;
+  }
+
+  .dateRangeEnd {
+    color: color(darkGray);
+    background-color: color(white);
+    border: 1px solid color(blue);
+    border-top-right-radius: 0.8rem;
+    border-bottom-right-radius: 0.8rem;
+  }
 }

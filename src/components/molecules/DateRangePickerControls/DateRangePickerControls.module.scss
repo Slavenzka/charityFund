@@ -1,0 +1,15 @@
+@import "styles/variables/index";
+@import "styles/mixins";
+
+.wrapper {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1.2rem 0.5rem 0.8rem 0.5rem;
+  border-top: 1px solid color(paleGray);
+}
+
+.label {
+  font-size: 1.2rem;
+}

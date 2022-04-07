@@ -1,0 +1,34 @@
+@import "styles/variables/index";
+@import "styles/mixins";
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.label {
+}
+
+.button {
+  width: 4rem;
+  height: 4rem;
+}
+
+.buttonNext {
+  .icon {
+    transform: rotate(180deg);
+  }
+}
+
+.icon {
+  width: 0.65rem;
+}
+
+.selectionWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

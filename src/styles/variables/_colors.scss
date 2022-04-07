@@ -1,0 +1,13 @@
+$colors: (
+  white: rgb(255, 255, 255),
+  lightBlue: rgb(245, 248, 255),
+  blue: rgb(31, 78, 222),
+  paleGray: rgb(229, 229, 229),
+  lightGray: rgb(164, 160, 160),
+  darkGray: rgb(34, 34, 34),
+  black: rgb(0, 0, 0),
+);
+
+@function color($color) {
+  @return map-get($colors, $color);
+}

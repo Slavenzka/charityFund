@@ -1,10 +1,10 @@
 import ComponentRenderTemplateStory from 'stories/ComponentRenderTemplateStory/ComponentRenderTemplateStory'
 import StoryTemplate from 'stories/StoryTemplate/StoryTemplate'
-import DateRangePicker from 'components/organisms/DateRangePicker/DateRangePicker'
+import { StoriesExportObject } from 'stories/specs/index.spec'
+import DateRangePickerWithControls from 'components/organisms/DateRangePickerWithControls/DateRangePickerWithControls'
+import { ListItemProps } from 'stories/ComponentRenderTemplateStory/ComponentRenderTemplateStory.spec'
 import StoriesStoreProvider from 'stories/providers/StoriesStoreProvider'
 import { getFormattedDate } from 'utils'
-import { ListItemProps } from 'stories/ComponentRenderTemplateStory/ComponentRenderTemplateStory.spec'
-import { StoriesExportObject } from 'stories/specs/index.spec'
 
 const list: ListItemProps[] = [
   {
@@ -12,7 +12,7 @@ const list: ListItemProps[] = [
     component: (
       <StoriesStoreProvider>
         {({store: {range}, updateRange}) => (
-          <DateRangePicker
+          <DateRangePickerWithControls
             value={range}
             onChange={updateRange}
             label="Date range label"
@@ -22,45 +22,14 @@ const list: ListItemProps[] = [
       </StoriesStoreProvider>
     ),
     code: (
-`
+      `
 <StoriesStoreProvider>
   {({store: {range}, updateRange}) => (
-    <DateRangePicker
+    <DateRangePickerWithControls
       value={range}
       onChange={updateRange}
       label="Date range label"
       name="dateRangePicker"
-    />
-  )}
-</StoriesStoreProvider>
-`
-    )
-  },
-  {
-    heading: `Default state w/o dropdown selects`,
-    component: (
-      <StoriesStoreProvider>
-        {({store: {range}, updateRange}) => (
-          <DateRangePicker
-            value={range}
-            onChange={updateRange}
-            label="Date range label"
-            name="dateRangePicker"
-            areDropdownsRequired={false}
-          />
-        )}
-      </StoriesStoreProvider>
-    ),
-    code: (
-`
-<StoriesStoreProvider>
-  {({store: {range}, updateRange}) => (
-    <DateRangePicker
-      value={range}
-      onChange={updateRange}
-      label="Date range label"
-      name="dateRangePicker"
-      areDropdownsRequired={false}
     />
   )}
 </StoriesStoreProvider>
@@ -72,7 +41,7 @@ const list: ListItemProps[] = [
     component: (
       <StoriesStoreProvider>
         {({store: {range}, updateRange}) => (
-          <DateRangePicker
+          <DateRangePickerWithControls
             value={range}
             onChange={updateRange}
             label="Date range label"
@@ -83,10 +52,10 @@ const list: ListItemProps[] = [
       </StoriesStoreProvider>
     ),
     code: (
-`
+      `
 <StoriesStoreProvider>
   {({store: {range}, updateRange}) => (
-    <DateRangePicker
+    <DateRangePickerWithControls
       value={range}
       onChange={updateRange}
       label="Date range label"
@@ -99,46 +68,11 @@ const list: ListItemProps[] = [
     )
   },
   {
-    heading: `W/ custom input value formatter`,
-    component: (
-      <StoriesStoreProvider>
-        {({store: {range}, updateRange}) => (
-          <DateRangePicker
-            value={range}
-            onChange={updateRange}
-            label="Date range label"
-            name="dateRangePicker"
-            inputValueFormatter={({from ,to}) => {
-              return `Range start with ${from ? getFormattedDate(from) : `N/A`} and finishes with ${to ? getFormattedDate(to) : `N/A`}`
-            }}
-          />
-        )}
-      </StoriesStoreProvider>
-    ),
-    code: (
-`
-<StoriesStoreProvider>
-  {({store: {range}, updateRange}) => (
-    <DateRangePicker
-      value={range}
-      onChange={updateRange}
-      label="Date range label"
-      name="dateRangePicker"
-      inputValueFormatter={({from ,to}) => {
-        return \`Range start with {from ? getFormattedDate(from) : 'N/A'} and finishes with {to ? getFormattedDate(to) : 'N/A'}\`
-      }}
-    />
-  )}
-</StoriesStoreProvider>
-`
-    )
-  },
-  {
     heading: `isRequired state`,
     component: (
       <StoriesStoreProvider>
         {({store: {range}, updateRange}) => (
-          <DateRangePicker
+          <DateRangePickerWithControls
             value={range}
             onChange={updateRange}
             label="Date range label"
@@ -149,10 +83,10 @@ const list: ListItemProps[] = [
       </StoriesStoreProvider>
     ),
     code: (
-`
+      `
 <StoriesStoreProvider>
   {({store: {range}, updateRange}) => (
-    <DateRangePicker
+    <DateRangePickerWithControls
       value={range}
       onChange={updateRange}
       label="Date range label"
@@ -169,7 +103,7 @@ const list: ListItemProps[] = [
     component: (
       <StoriesStoreProvider>
         {({store: {range}, updateRange}) => (
-          <DateRangePicker
+          <DateRangePickerWithControls
             value={range}
             onChange={updateRange}
             label="Date range label"
@@ -184,10 +118,10 @@ const list: ListItemProps[] = [
       </StoriesStoreProvider>
     ),
     code: (
-`
+      `
 <StoriesStoreProvider>
   {({store: {range}, updateRange}) => (
-    <DateRangePicker
+    <DateRangePickerWithControls
       value={range}
       onChange={updateRange}
       label="Date range label"
@@ -205,23 +139,23 @@ const list: ListItemProps[] = [
   },
 ]
 
-export const DEFAULT = () => <ComponentRenderTemplateStory list={list} />
+export const Usage = () => <ComponentRenderTemplateStory list={list} />
 
 export default {
-  title: `Components/Organisms/DateRangePicker`,
-  component: DateRangePicker,
+  title: `Components/Organisms/DateRangePickerWithControls`,
+  component: DateRangePickerWithControls,
   decorators: [story => (
     <StoryTemplate
       story={story}
-      componentName={`DateRangePicker`}
+      componentName={`DateRangePickerWithControls`}
       componentDescription={(
         <>
-          Renders date range picker with capability to provide custom function to modify input content
+          DateRangePicker version with controls to reset picker status or to submit its value to external controller
         </>
       )}
       proptypesString={(
 `
-export interface DateRangePickerValueType {
+  export interface DateRangePickerValueType {
   from: number,
   to: number
 }
@@ -241,10 +175,6 @@ export interface DateRangePickerProps extends
   PropsWithClassName,
   PropsFormElement<DateRangePickerValueType,DateRangePickerValueType>,
   DateRangePickerControlProps {
-  /*
-  * Toggles render of dropdown lists for quick selection of a year and a month
-  */
-  areDropdownsRequired?: boolean;
   /*
   * A way to pass additional content to be rendered below calendars, e.g. controls from controller wrapper
   */
@@ -273,13 +203,6 @@ export interface DateRangePickerProps extends
   * Style variant of default input component
   */
   variant?: InputVariants;
-}`
-      )}
-      defaultPropsString={(
-`
-DateRangePicker.defaultProps = {
-  areDropdownsRequired: true,
-  variant = InputVariants.CALENDAR_DEFAULT
 }
 `
       )}

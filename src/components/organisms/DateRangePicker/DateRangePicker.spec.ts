@@ -1,12 +1,35 @@
 import { PropsFormElement, PropsWithClassName } from 'specs/index.spec'
-import { ElementType } from 'react'
+import { ElementType, ReactNode } from 'react'
+import { InputVariants } from 'components/atoms/Input/Input.spec'
 
-interface DateRangePickerValueType {
-  from: number,
-  to: number
+export interface DateRangePickerValueType {
+  from: number | null,
+  to: number | null
 }
 
-export interface DateRangePickerProps extends PropsWithClassName, PropsFormElement<DateRangePickerValueType, DateRangePickerValueType>{
+export interface DateRangePickerControlProps {
+  /*
+  * State update function
+  */
+  onChange: (newValue: DateRangePickerValueType) => void,
+  /*
+  * Actual value from state
+  */
+  value: DateRangePickerValueType,
+}
+
+export interface DateRangePickerProps extends
+  PropsWithClassName,
+  PropsFormElement<DateRangePickerValueType,DateRangePickerValueType>,
+  DateRangePickerControlProps {
+  /*
+  * Toggles render of dropdown lists for quick selection of a year and a month
+  */
+  areDropdownsRequired?: boolean;
+  /*
+  * A way to pass additional content to be rendered below calendars, e.g. controls from controller wrapper
+  */
+  extraContent?: ReactNode,
   /*
   * Optional component to replace default input field for indicating selected range and toggling range picker
   */
@@ -15,10 +38,6 @@ export interface DateRangePickerProps extends PropsWithClassName, PropsFormEleme
   * Error message from form state manager
   */
   error?: string,
-  /*
-  * State update function
-  */
-  onChange: (newValue: DateRangePickerValueType) => void,
   /*
   * Label text for the trigger input
   */
@@ -32,7 +51,7 @@ export interface DateRangePickerProps extends PropsWithClassName, PropsFormEleme
   */
   isRequired?: boolean,
   /*
-  * Actual value from state
+  * Style variant of default input component
   */
-  value: DateRangePickerValueType,
+  variant?: InputVariants;
 }

@@ -21,5 +21,5 @@ export interface PropsFormElement<ValueType, HandlerArgumentsType> {
 }
 
 export interface RestPropsType {
-  [key: string]: string | number | Date | null | ElementType | ReactNode;
+  [key: string]: string | number | Date | null | ElementType | ReactNode | `<T>(arg: T) => void`;
 }

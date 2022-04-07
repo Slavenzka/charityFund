@@ -1,4 +1,4 @@
-import { MONTHS_SHORT } from 'utils/const'
+import { CALENDAR_START_YEAR, MONTHS } from 'utils/const'
 import { SelectCustomOptionType } from 'components/molecules/SelectCustom/SelectCustom.spec'
 import { FC } from 'react'
 
@@ -49,7 +49,7 @@ export function addZeroToSingleDigit (value: string | number): string | number {
     : value
 }
 
-export function getFormattedDate (inputDate: number | Date, isTimeRequired?: boolean) {
+export function getFormattedDate (inputDate: number | Date | null, isTimeRequired?: boolean) {
   if (!inputDate) return ``
   
   const date = new Date(inputDate)
@@ -58,21 +58,21 @@ export function getFormattedDate (inputDate: number | Date, isTimeRequired?: boo
   const day = date.getDate()
   
   if (!isTimeRequired) {
-    return `${addZeroToSingleDigit(day)}-${MONTHS_SHORT[month]}-${year}`
+    return `${addZeroToSingleDigit(day)}-${MONTHS[month]}-${year}`
   }
   
   const hours = date.getHours()
   const minutes = date.getMinutes()
   
-  return `${addZeroToSingleDigit(day)}-${MONTHS_SHORT[month]}-${year} ${addZeroToSingleDigit(hours)}:${addZeroToSingleDigit(minutes)}`
+  return `${addZeroToSingleDigit(day)}-${MONTHS[month]}-${year} ${addZeroToSingleDigit(hours)}:${addZeroToSingleDigit(minutes)}`
 }
 
 export function getCalendarHighlightedDates ({
   from,
   to
 }: {
-  from?: number | Date,
-  to?: number | Date
+  from?: number | null,
+  to?: number | null
 }) {
   if (!from || !to) return []
   
@@ -94,8 +94,8 @@ export function getCalendarRangeValue ({
   from,
   to
 }: {
-  from?: number | Date,
-  to?: number | Date
+  from?: number | null,
+  to?: number | null
 }) {
   if (from && !to) {
     const formattedFrom = getFormattedDate(from)
@@ -151,3 +151,30 @@ export const throttle = (callback: Function, time: number) => {
 export function emptyControllerWrapper ({render, ...props}: {render: FC}) {
   return render(props)
 }
+
+export function getSimplifiedDate (timestamp: number) {
+  const date = new Date(timestamp)
+  const year = date.getFullYear()
+  const month = date.getMonth()
+  const day = date.getDate()
+
+  return new Date(year, month, day)
+}
+
+export const getYearOptions = () => {
+  const currentYear = (new Date()).getFullYear()
+
+  return new Array(currentYear - CALENDAR_START_YEAR + 1)
+    .fill(``)
+    .map((_, index) => ({
+      label: currentYear - index,
+      value: currentYear - index
+    }))
+}
+
+export const monthOptions = new Array(MONTHS.length)
+  .fill(``)
+  .map((_, index) => ({
+    label: MONTHS[index],
+    value: MONTHS[index]
+  }))

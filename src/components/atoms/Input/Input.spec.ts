@@ -3,7 +3,8 @@ import { HTMLProps, ReactNode } from 'react'
 export enum InputVariants {
   DEFAULT = `DEFAULT`,
   CHECKBOX_DEFAULT = `CHECKBOX_DEFAULT`,
-  SEARCH = `SEARCH`
+  SEARCH = `SEARCH`,
+  CALENDAR_DEFAULT = `CALENDAR_DEFAULT`
 }
 
 export enum InputTypes {

@@ -1,7 +1,7 @@
-import { PropsFormElement, PropsWithClassName } from 'specs/index.spec'
-import { ElementType } from 'react'
+import { PropsFormElement, PropsWithClassName, RestPropsType } from 'specs/index.spec'
+import { ElementType, ReactNode } from 'react'
 
-export type DatepickerValueType = number
+export type DatepickerValueType = number | null
 
 export interface DateInputType {
   ({
@@ -13,21 +13,28 @@ export interface DateInputType {
   }): JSX.Element
 }
 
-interface RenderCustomControlsType {
-  ({
-    date,
-    onChange,
-    onSubmit,
-    onCancel
-  }: {
-    date: DatepickerValueType,
-    onChange: (evt: DatepickerValueType) => void,
-    onSubmit: () => void,
-    onCancel: () => void
-  }): JSX.Element
-}
+// interface RenderCustomControlsType {
+//   ({
+//     date,
+//     onChange,
+//     onSubmit,
+//     onCancel
+//   }: {
+//     date: DatepickerValueType,
+//     onChange: (evt: DatepickerValueType) => void,
+//     onSubmit: () => void,
+//     onCancel: () => void
+//   }): JSX.Element
+// }
 
-export interface DatepickerProps extends PropsWithClassName, PropsFormElement<DatepickerValueType, DatepickerValueType> {
+export interface DatepickerProps extends
+  PropsWithClassName,
+  PropsFormElement<DatepickerValueType, DatepickerValueType>,
+  RestPropsType {
+  /*
+  * Toggles render of dropdown selects in calendar header for quick selection of month and year
+  */
+  areDropdownsRequired?: boolean;
   /*
   * Error message from form state manager
   */
@@ -37,9 +44,17 @@ export interface DatepickerProps extends PropsWithClassName, PropsFormElement<Da
   */
   InputComponent?: ElementType;
   /*
+  * Custom function to modify the content rendered inside datepicker input field
+  */
+  inputValueFormatter?: (timestamp: DatepickerValueType) => string;
+  /*
   * Toggles calendar close on date select
   */
   isCloseOnSelect?: boolean;
+  /*
+  * Toggles calendar close on click outside of calendar or calendar input area
+  */
+  isCloseOnClickOutside?: boolean;
   /*
   * Toggles "is disabled" class on component's wrapper
   */
@@ -61,8 +76,7 @@ export interface DatepickerProps extends PropsWithClassName, PropsFormElement<Da
   */
   label?: string;
   /*
-  * Render function for external controls over state. If provided datepicker component won't call onChange on every
-  * update of the selected date and will pass {date, onChange, onSubmit, onCancel} to external component.
+  * A way to pass additional content to be rendered below calendar
   */
-  renderCustomControls?: RenderCustomControlsType,
+  extraBlock?: ReactNode,
 }

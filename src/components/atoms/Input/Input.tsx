@@ -51,8 +51,8 @@ const InputDefault: FC<InputDefaultProps> = memo(({
       >
         { children }
         { input }
+        {error && <FormItemError message={error} />}
       </InputLabel>
-      {error && <FormItemError message={error} />}
     </>
   )
 })

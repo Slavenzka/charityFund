@@ -1,46 +1,62 @@
-import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import {
+  Dispatch,
+  ForwardedRef,
+  forwardRef,
+  Fragment,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState
+} from 'react'
 import css from './Datepicker.module.scss'
 import Input from 'components/atoms/Input/Input'
 import classnames from 'classnames'
 import Timepicker from 'components/organisms/Datepicker/Timepicker/Timepicker'
 import { generateTimeOptions, getFormattedDate } from 'utils'
-import Button from 'components/atoms/Button/Button'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import InputLabel from 'components/atoms/InputLabel/InputLabel'
 import { DateInputType, DatepickerProps } from 'components/organisms/Datepicker/Datepicker.spec'
+import CalendarHeader from 'components/molecules/CalendarHeader/CalendarHeader'
 
-function Datepicker ({
+const Datepicker = forwardRef(({
+  areDropdownsRequired = true,
   className,
   error,
+  extraBlock,
   InputComponent,
   isCloseOnSelect = true,
+  isCloseOnClickOutside = true,
   isDisabled,
   isHoursPickRequired = true,
   isMinutesPickRequired = true,
+  inputValueFormatter,
   isRequired,
   label,
   onChange,
-  renderCustomControls,
   value,
   ...props
-}: DatepickerProps) {
-  const [date, setDate] = useState(value)
+}: DatepickerProps, ref: ForwardedRef<Dispatch<SetStateAction<boolean>>>) => {
   const [open, setOpen] = useState(false)
-  const valueRef = useRef(value)
-  
-  const isFilterReset = valueRef.current && !value
+
   const isSingleTimepicker = isHoursPickRequired && !isMinutesPickRequired
   const isNotTimepicker = !isHoursPickRequired
-  
-  const inputValue = getFormattedDate(date, !isNotTimepicker)
-  
+
+  const inputValue = useMemo(() => {
+    if (inputValueFormatter) return inputValueFormatter(value)
+
+    return getFormattedDate(value, !isNotTimepicker)
+  }, [value, inputValueFormatter, isNotTimepicker])
+
   const DateInput: DateInputType = useCallback(({value, onClick}) => {
     const inputProps = {
       error,
       onClick,
       value,
     }
+
+    if (InputComponent === Fragment) return <Fragment />
     
     if (InputComponent) {
       return (
@@ -60,21 +76,21 @@ function Datepicker ({
   }, [InputComponent, error, label])
 
   const handleChangeHours = useCallback(evt => {
-    const selectedDate = new Date(date)
-    selectedDate.setHours(evt.value)
-    setDate(+selectedDate)
-  }, [date])
+    if (value) {
+      const selectedDate = new Date(value)
+      selectedDate.setHours(evt.value)
+      onChange(+selectedDate)
+    }
+  }, [value, onChange])
   
   const handleChangeMinutes = useCallback(evt => {
-    const selectedDate = new Date(date)
-    selectedDate.setMinutes(evt.value)
-    setDate(+selectedDate)
-  }, [date])
-  
-  const setToday = useCallback(() => {
-    setDate(Date.now())
-  }, [])
-  
+    if (value) {
+      const selectedDate = new Date(value)
+      selectedDate.setMinutes(evt.value)
+      onChange(+selectedDate)
+    }
+  }, [value, onChange])
+
   const defaultHours = useMemo(() => {
     return {
       label: value
@@ -96,20 +112,14 @@ function Datepicker ({
         : 0,
     }
   }, [value])
-  
+
   useEffect(() => {
-    if (!isFilterReset && date !== value && !renderCustomControls) {
-      onChange(date)
+    // ref is used to lift the setOpenStatus function for DateRangePickerWithControls
+    if (ref && typeof ref === `function`) {
+      ref(setOpen)
     }
-  }, [date, value, onChange, renderCustomControls, isFilterReset])
-  
-  useEffect(() => {
-    if (isFilterReset) {
-      setDate(value)
-    }
-    valueRef.current = value
-  }, [isFilterReset, value])
-  
+  }, [ref])
+
   return (
     <div
       className={classnames(css.wrapper, className, {
@@ -125,35 +135,49 @@ function Datepicker ({
       >
         <DateInput
           onClick={() => {
-            
-            if (open && date !== value) {
-              setDate(value)
-            }
-            
             setOpen(prevState => !prevState)
           }}
           value={inputValue}
         />
       </InputLabel>
       <DatePicker
-        selected={new Date(date)}
+        open={open}
+        selected={value ? new Date(value) : new Date()}
         customInput={<Fragment />}
         peekNextMonth
         showMonthDropdown
         showYearDropdown
         dropdownMode="select"
         onChange={(evt: Date) => {
-          setDate(+evt)
-          isCloseOnSelect && !renderCustomControls && setOpen(false)
+          onChange(+evt)
+          isCloseOnSelect && setOpen(false)
         }}
         onClickOutside={() => {
-          setOpen(false)
-          
-          if (value !== date) {
-            setDate(value)
-          }
+          isCloseOnClickOutside && setOpen(false)
         }}
-        open={open}
+        renderCustomHeader={props => (
+          <CalendarHeader
+            areDropdownsRequired={areDropdownsRequired}
+            {...props}
+          />
+        )}
+        showPopperArrow={false}
+        popperModifiers={[
+          {
+            name: 'offset',
+            options: {
+              offset: ({ placement }) => {
+                const isTopPosition = placement === 'top' || placement === `top-start` || placement === `top-end`
+
+                if (isTopPosition) {
+                  return [0, 30];
+                }
+
+                return [0, 0];
+              },
+            },
+          },
+        ]}
         disabledKeyboardNavigation
         {...props}
       >
@@ -177,33 +201,12 @@ function Datepicker ({
                 />
               }
             </div>
-            <div className={css.footer}>
-              <Button
-                onClick={setToday}
-                className={css.buttonToday}
-              >
-                Today
-              </Button>
-              {renderCustomControls && renderCustomControls({
-                date,
-                onChange,
-                onSubmit: () => {
-                  setOpen(false)
-                },
-                onCancel: () => {
-                  setOpen(false)
-  
-                  if (value !== date) {
-                    setDate(value)
-                  }
-                }
-              })}
-            </div>
+            {extraBlock}
           </>
         )}
       </DatePicker>
     </div>
   )
-}
+})
 
 export default Datepicker

@@ -95,6 +95,37 @@ const list: ListItemProps[] = [
     )
   },
   {
+    heading: `Default state w/o dropdowns`,
+    component: (
+      <StoriesStoreProvider>
+        {({store: {date}, updateDate}) => (
+          <Datepicker
+            value={date}
+            onChange={updateDate}
+            name="datepicker"
+            label="Some test label"
+            areDropdownsRequired={false}
+          />
+        )}
+      </StoriesStoreProvider>
+    ),
+    code: (
+`
+<StoriesStoreProvider>
+  {({store: {date}, updateDate}) => (
+    <Datepicker
+      value={date}
+      onChange={updateDate}
+      name="datepicker"
+      label="Some test label"
+      areDropdownsRequired={false}
+    />
+  )}
+</StoriesStoreProvider>
+`
+    )
+  },
+  {
     heading: `Default state w/ error`,
     component: (
       <StoriesStoreProvider>
@@ -176,7 +207,7 @@ const list: ListItemProps[] = [
       <Datepicker
         value={Date.now()}
         label="Datepicker label"
-        onChange={evt => console.log(`State updated with ${ new Date(evt) }!`)}
+        onChange={evt => console.log(`State updated with ${ evt ? new Date(evt) : new Date() }!`)}
         name="datepicker"
         isDisabled
       />
@@ -279,77 +310,6 @@ const list: ListItemProps[] = [
       label="Datepicker label"
       onChange={updateDate}
       isCloseOnSelect={false}
-      name="datepicker"
-    />
-  )}
-</StoriesStoreProvider>
-`
-    )
-  },
-  {
-    heading: `Datepicker w/ custom controls`,
-    component: (
-      <StoriesStoreProvider>
-        {({store: {date}, updateDate}) => (
-          <Datepicker
-            value={date}
-            label="Datepicker label"
-            onChange={updateDate}
-            renderCustomControls={({date, onChange, onSubmit, onCancel}) => (
-              <>
-                <button
-                  onClick={() => {
-                    onCancel()
-                  }}
-                  type="button"
-                >
-                  Close
-                </button>
-                <button
-                  onClick={() => {
-                    onChange(date)
-                    onSubmit()
-                  }}
-                  type="button"
-                >
-                  Update state
-                </button>
-              </>
-            )}
-            name="datepicker"
-          />
-        )}
-      </StoriesStoreProvider>
-    ),
-    code: (
-      `
-<StoriesStoreProvider>
-  {({store: {date}, updateDate}) => (
-    <Datepicker
-      value={date}
-      label="Datepicker label"
-      onChange={updateDate}
-      renderCustomControls={({date, onChange, onSubmit, onCancel}) => (
-        <>
-          <button
-            onClick={() => {
-              onCancel()
-            }}
-            type="button"
-          >
-            Close
-          </button>
-          <button
-            onClick={() => {
-              onChange(date)
-              onSubmit()
-            }}
-            type="button"
-          >
-            Update state
-          </button>
-        </>
-      )}
       name="datepicker"
     />
   )}

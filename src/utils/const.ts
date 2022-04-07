@@ -20,7 +20,9 @@ export const LoadingStatuses = {
   ERROR: `ERROR`
 }
 
-export const MONTHS_SHORT = [
+export const CALENDAR_START_YEAR = 2000
+
+export const MONTHS = [
   `Jan`,
   `Feb`,
   `Mar`,
