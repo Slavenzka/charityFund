@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/charityFund/static/css/main.41155208.css",
+    "main.js": "/charityFund/static/js/main.3b2218b3.js",
+    "static/media/bg.png": "/charityFund/static/media/bg.79452001f7a1a9f2f6c6.png",
+    "static/media/Lato-Regular.woff": "/charityFund/static/media/Lato-Regular.ec55c1c4f33848fee5ee.woff",
+    "static/media/Lato-Bold.woff": "/charityFund/static/media/Lato-Bold.40eb26b0eedcb6d0e7ae.woff",
+    "static/media/Lato-Light.woff": "/charityFund/static/media/Lato-Light.7f0c0a9134cf020ed97a.woff",
+    "static/media/Lato-Medium.woff": "/charityFund/static/media/Lato-Medium.b80cfc72861f699a1411.woff",
+    "static/media/mission.jpg": "/charityFund/static/media/mission.c184962ffcd609785baf.jpg",
+    "static/media/Lato-Regular.woff2": "/charityFund/static/media/Lato-Regular.804f19cfd097e57c62c0.woff2",
+    "static/media/Lato-Bold.woff2": "/charityFund/static/media/Lato-Bold.7ef4fd174ace387f1763.woff2",
+    "static/media/Lato-Medium.woff2": "/charityFund/static/media/Lato-Medium.1a9318adf7ab11fc7b0a.woff2",
+    "static/media/Lato-Light.woff2": "/charityFund/static/media/Lato-Light.4fd96c2bff59ea6fa7c1.woff2",
+    "static/media/Moisuk.jpg": "/charityFund/static/media/Moisuk.4e093917316993fb2693.jpg",
+    "static/media/Shaptala.jpg": "/charityFund/static/media/Shaptala.ac5a56fd3f5c1a0a6158.jpg",
+    "static/media/Raleway-Bold.woff": "/charityFund/static/media/Raleway-Bold.f70ab645f9f8355ba0a4.woff",
+    "static/media/Zaluzhny.jpg": "/charityFund/static/media/Zaluzhny.afda4c03f6a2802fb4de.jpg",
+    "static/media/Raleway-Bold.woff2": "/charityFund/static/media/Raleway-Bold.2db4febfd24dc7b6a061.woff2",
+    "static/media/logo_light.png": "/charityFund/static/media/logo_light.d64c28e4da6fdb50fe5a.png",
+    "static/media/logo.png": "/charityFund/static/media/logo.dac0e96787bf051617a9.png",
+    "index.html": "/charityFund/index.html",
+    "main.41155208.css.map": "/charityFund/static/css/main.41155208.css.map",
+    "main.3b2218b3.js.map": "/charityFund/static/js/main.3b2218b3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.41155208.css",
+    "static/js/main.3b2218b3.js"
+  ]
+}
