@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/charityFund/static/css/main.8526ecc8.css",
-    "main.js": "/charityFund/static/js/main.d84ce032.js",
+    "main.css": "/charityFund/static/css/main.46a7ebeb.css",
+    "main.js": "/charityFund/static/js/main.15aedf7c.js",
+    "static/media/demo.mp4": "/charityFund/static/media/demo.1318d5b75dff79c255ac.mp4",
     "static/media/bg.png": "/charityFund/static/media/bg.79452001f7a1a9f2f6c6.png",
     "static/media/Lato-Regular.woff": "/charityFund/static/media/Lato-Regular.ec55c1c4f33848fee5ee.woff",
     "static/media/Lato-Bold.woff": "/charityFund/static/media/Lato-Bold.40eb26b0eedcb6d0e7ae.woff",
     "static/media/Lato-Light.woff": "/charityFund/static/media/Lato-Light.7f0c0a9134cf020ed97a.woff",
     "static/media/Lato-Medium.woff": "/charityFund/static/media/Lato-Medium.b80cfc72861f699a1411.woff",
-    "static/media/mission.jpg": "/charityFund/static/media/mission.c184962ffcd609785baf.jpg",
     "static/media/Lato-Regular.woff2": "/charityFund/static/media/Lato-Regular.804f19cfd097e57c62c0.woff2",
     "static/media/Lato-Bold.woff2": "/charityFund/static/media/Lato-Bold.7ef4fd174ace387f1763.woff2",
     "static/media/Lato-Medium.woff2": "/charityFund/static/media/Lato-Medium.1a9318adf7ab11fc7b0a.woff2",
@@ -20,11 +20,11 @@
     "static/media/logo_light.png": "/charityFund/static/media/logo_light.d64c28e4da6fdb50fe5a.png",
     "static/media/logo.png": "/charityFund/static/media/logo.dac0e96787bf051617a9.png",
     "index.html": "/charityFund/index.html",
-    "main.8526ecc8.css.map": "/charityFund/static/css/main.8526ecc8.css.map",
-    "main.d84ce032.js.map": "/charityFund/static/js/main.d84ce032.js.map"
+    "main.46a7ebeb.css.map": "/charityFund/static/css/main.46a7ebeb.css.map",
+    "main.15aedf7c.js.map": "/charityFund/static/js/main.15aedf7c.js.map"
   },
   "entrypoints": [
-    "static/css/main.8526ecc8.css",
-    "static/js/main.d84ce032.js"
+    "static/css/main.46a7ebeb.css",
+    "static/js/main.15aedf7c.js"
   ]
 }
