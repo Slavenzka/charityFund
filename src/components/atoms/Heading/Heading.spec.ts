@@ -1,3 +1,6 @@
+import { PropsWithClassName } from 'specs/index.spec'
+import { PropsWithChildren } from 'react'
+
 export enum HeadingTypes {
   H1 = `h1`,
   H2 = `h2`,
@@ -5,13 +8,16 @@ export enum HeadingTypes {
   H4 = `h4`,
 }
 
-export interface HeadingProps {
+export interface HeadingProps extends PropsWithChildren<PropsWithClassName> {
   /*
-  * Optional external class name, that would be added to heading
+  * Applies heading type
   */
-  className: string;
+  headingType?: HeadingTypes;
   /*
-  * Triggers application of class name according to its value from HeadingTypes enum
+  * Applies heading style that is decoupled from type
   */
-  type: HeadingTypes;
+  headingStyle?: HeadingTypes;
+  dangerouslySetInnerHTML?: {
+    __html: string
+  };
 }

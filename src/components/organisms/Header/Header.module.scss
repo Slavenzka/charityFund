@@ -1,0 +1,27 @@
+@import "../../../styles/variables/index";
+@import "../../../styles/mixins";
+
+.header {
+  background-color: color(white);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 2.4rem;
+  padding-bottom: 1.6rem;
+}
+
+.logo {
+  margin-right: auto;
+  height: 6rem;
+}
+
+.buttonLang {
+  margin-left: 5rem;
+}
+
+.buttonSupport {
+  margin-left: 4rem;
+}

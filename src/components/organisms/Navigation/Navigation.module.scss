@@ -1,0 +1,26 @@
+@import "styles/variables/index";
+@import "styles/mixins";
+
+.list {
+  @include resetList;
+
+  display: flex;
+  align-items: center;
+}
+
+.item {
+  &:not(:first-child) {
+    margin-left: 4.7rem;
+  }
+}
+
+.button {
+  @include resetButton;
+  @include fontNavigation(color(black));
+
+  text-transform: uppercase;
+}
+
+.buttonLight {
+  color: color(white);
+}

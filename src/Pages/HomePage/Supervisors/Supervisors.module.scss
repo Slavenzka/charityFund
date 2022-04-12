@@ -1,0 +1,15 @@
+@import "styles/mixins";
+
+.wrapper {
+  padding-top: 15rem;
+}
+
+.list {
+  @include resetList;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 14rem;
+  margin-top: 5.6rem;
+  padding: 0 7rem;
+}

@@ -3,9 +3,9 @@ import StoryTemplate from 'stories/StoryTemplate/StoryTemplate'
 import Tabs from 'components/molecules/Tabs/Tabs'
 import IconArrow from 'assets/icons/IconArrow'
 import css from 'stories/styles/modules/TabItem.module.scss'
-import TabsController from 'components/organisms/controllers/TabsController/TabsController'
 import { ListItemProps } from 'stories/ComponentRenderTemplateStory/ComponentRenderTemplateStory.spec'
 import { StoriesExportObject } from 'stories/specs/index.spec'
+import TabsController from 'components/organisms/controllers/TabsController/TabsController'
 
 const list: ListItemProps[] = [
   {

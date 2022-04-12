@@ -1,0 +1,21 @@
+.wrapper {
+  padding-top: 15rem;
+}
+
+.subheading {
+  margin-top: 3.2rem;
+  text-transform: uppercase;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 3rem;
+  margin-top: 3.2rem;
+}
+
+.item {
+  &:not(:first-child) {
+    margin-top: 2.4rem;
+  }
+}

@@ -1,5 +1,15 @@
+@import "styles/mixins";
+@import "styles/fonts";
+
 html {
   font-size: 10px;
+}
+
+body {
+  background-image:
+    url("../assets/images/bg.png"),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+  background-size: cover;
 }
 
 *,
@@ -11,4 +21,8 @@ html {
 
 a {
   text-decoration: none;
+}
+
+.visuallyHidden {
+  @include visuallyHidden;
 }

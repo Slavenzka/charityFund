@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 import { ModalOptionsType } from 'components/organisms/Modal/Modal.spec'
 import { DeviceTypes } from 'specs/enum.spec'
+import { LanguageOptions } from 'utils/const'
 
 export interface StoreModalSlice {
   content: ReactNode;
@@ -9,6 +10,7 @@ export interface StoreModalSlice {
 
 export interface StoreUISlice {
   modal: StoreModalSlice;
+  lang: LanguageOptions
 }
 
 type ElasticConfigItemType = {

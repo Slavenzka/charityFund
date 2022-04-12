@@ -5,7 +5,7 @@ export {
 
 export {
   toggleModal
-} from './ui'
+} from 'store/actions/ui'
 
 export {
   updateTableSelectedItem,

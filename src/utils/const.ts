@@ -13,11 +13,9 @@ export const FormElements = {
   TEXT_AREA_VARIABLE_HEIGHT: `TEXT_AREA_VARIABLE_HEIGHT`,
 }
 
-export const LoadingStatuses = {
-  IDLE: `IDLE`,
-  IN_PROGRESS: `IN_PROGRESS`,
-  SUCCESS: `SUCCESS`,
-  ERROR: `ERROR`
+export enum LanguageOptions {
+  UA = `UA`,
+  ENG = `ENG`
 }
 
 export const CALENDAR_START_YEAR = 2000

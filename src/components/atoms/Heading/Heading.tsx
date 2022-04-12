@@ -3,17 +3,18 @@ import css from './Heading.module.scss'
 import classnames from 'classnames'
 import { HeadingProps, HeadingTypes } from "components/atoms/Heading/Heading.spec"
 
-const Heading: FC<HeadingProps> = ({
+function Heading ({
   className,
-  type = HeadingTypes.H2,
+  headingType = HeadingTypes.H2,
+  headingStyle = HeadingTypes.H2,
   children,
   ...props
-}) => {
-  const TagName = type ?? HeadingTypes.H2
+}: HeadingProps) {
+  const TagName = headingType ?? HeadingTypes.H2
   
   return (
     <TagName
-      className={classnames(css.wrapper, className, css[TagName])}
+      className={classnames(css.wrapper, className, css[headingStyle])}
       {...props}
     >
       { children }

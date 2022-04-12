@@ -1,0 +1,12 @@
+@import "styles/mixins";
+@import "styles/variables/index";
+
+.button {
+  @include resetButton;
+  @include fontButton(color(white));
+
+  width: 18.7rem;
+  height: 4rem;
+  text-transform: uppercase;
+  background-color: color(black);
+}

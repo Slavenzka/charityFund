@@ -1,0 +1,16 @@
+@import "styles/variables/index";
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  font-size: 0;
+  background-color: color(white);
+  border-radius: 50%;
+}
+
+.icon {
+  fill: color(black);
+}

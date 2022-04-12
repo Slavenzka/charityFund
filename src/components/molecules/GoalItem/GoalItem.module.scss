@@ -1,0 +1,27 @@
+@import "styles/variables/index";
+@import "styles/mixins";
+
+.item {
+  @include regular(color(white), 300);
+
+  position: relative;
+  text-align: right;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -2.4rem;
+    right: 0;
+    width: 33.6rem;
+    height: 0.3rem;
+    background-color: color(white);
+  }
+}
+
+.counter {
+  @include h0;
+
+  position: absolute;
+  top: -11rem;
+  left: 0;
+}

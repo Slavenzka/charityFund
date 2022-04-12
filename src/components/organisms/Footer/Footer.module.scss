@@ -1,0 +1,23 @@
+@import "styles/variables/index";
+
+.wrapper {
+  padding: 1.7rem 0;
+  border-top: 1px solid color(gray);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 6rem;
+}
+
+.navigation {
+  margin-left: 18.4rem;
+}
+
+.button {
+  margin-left: auto;
+}

@@ -1,7 +1,8 @@
 import { memo } from 'react'
-import Routes from 'Pages/Routes'
-import Header from 'components/molecules/Header/Header'
+import Header from 'components/organisms/Header/Header'
 import useHeaderTypeController from 'hooks/useHeaderTypeController'
+import HomePage from 'Pages/HomePage/HomePage'
+import Footer from 'components/organisms/Footer/Footer'
 
 function DesktopApp () {
   const {className} = useHeaderTypeController()
@@ -12,8 +13,9 @@ function DesktopApp () {
         className={className}
       />
       <main>
-        <Routes />
+        <HomePage />
       </main>
+      <Footer />
     </>
   )
 }
