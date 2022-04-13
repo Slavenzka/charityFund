@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/charityFund/static/css/main.a7d92857.css",
-    "main.js": "/charityFund/static/js/main.a564f7e4.js",
+    "main.css": "/charityFund/static/css/main.c2fef253.css",
+    "main.js": "/charityFund/static/js/main.83f29f7b.js",
     "static/media/demo.mp4": "/charityFund/static/media/demo.843d0fdfb0830d60bf6d.mp4",
     "static/media/bg.png": "/charityFund/static/media/bg.79452001f7a1a9f2f6c6.png",
     "static/media/Lato-Regular.woff": "/charityFund/static/media/Lato-Regular.ec55c1c4f33848fee5ee.woff",
@@ -14,17 +14,19 @@
     "static/media/Lato-Light.woff2": "/charityFund/static/media/Lato-Light.4fd96c2bff59ea6fa7c1.woff2",
     "static/media/Raleway-Bold.woff": "/charityFund/static/media/Raleway-Bold.f70ab645f9f8355ba0a4.woff",
     "static/media/Raleway-Bold.woff2": "/charityFund/static/media/Raleway-Bold.2db4febfd24dc7b6a061.woff2",
+    "static/media/btcQr.jpg": "/charityFund/static/media/btcQr.1b29af89497612a716aa.jpg",
+    "static/media/erc20qr.jpg": "/charityFund/static/media/erc20qr.85d5a66149874a1a3388.jpg",
     "static/media/Moisuk.jpg": "/charityFund/static/media/Moisuk.af21a56fe966b8bc9f1c.jpg",
     "static/media/logo_light.png": "/charityFund/static/media/logo_light.d64c28e4da6fdb50fe5a.png",
     "static/media/Zaluzhny.jpg": "/charityFund/static/media/Zaluzhny.7501f13abcb75783af09.jpg",
     "static/media/Shaptala.jpg": "/charityFund/static/media/Shaptala.ef23be3792eee461de35.jpg",
     "static/media/logo.png": "/charityFund/static/media/logo.dac0e96787bf051617a9.png",
     "index.html": "/charityFund/index.html",
-    "main.a7d92857.css.map": "/charityFund/static/css/main.a7d92857.css.map",
-    "main.a564f7e4.js.map": "/charityFund/static/js/main.a564f7e4.js.map"
+    "main.c2fef253.css.map": "/charityFund/static/css/main.c2fef253.css.map",
+    "main.83f29f7b.js.map": "/charityFund/static/js/main.83f29f7b.js.map"
   },
   "entrypoints": [
-    "static/css/main.a7d92857.css",
-    "static/js/main.a564f7e4.js"
+    "static/css/main.c2fef253.css",
+    "static/js/main.83f29f7b.js"
   ]
 }
