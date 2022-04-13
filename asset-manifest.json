@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/charityFund/static/css/main.b166cf5e.css",
-    "main.js": "/charityFund/static/js/main.da079783.js",
+    "main.js": "/charityFund/static/js/main.a48dbfe8.js",
     "static/media/demo.mp4": "/charityFund/static/media/demo.843d0fdfb0830d60bf6d.mp4",
     "static/media/bg.png": "/charityFund/static/media/bg.79452001f7a1a9f2f6c6.png",
     "static/media/Lato-Regular.woff": "/charityFund/static/media/Lato-Regular.ec55c1c4f33848fee5ee.woff",
@@ -21,10 +21,10 @@
     "static/media/logo.png": "/charityFund/static/media/logo.dac0e96787bf051617a9.png",
     "index.html": "/charityFund/index.html",
     "main.b166cf5e.css.map": "/charityFund/static/css/main.b166cf5e.css.map",
-    "main.da079783.js.map": "/charityFund/static/js/main.da079783.js.map"
+    "main.a48dbfe8.js.map": "/charityFund/static/js/main.a48dbfe8.js.map"
   },
   "entrypoints": [
     "static/css/main.b166cf5e.css",
-    "static/js/main.da079783.js"
+    "static/js/main.a48dbfe8.js"
   ]
 }
