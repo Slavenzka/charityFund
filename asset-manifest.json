@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/charityFund/static/css/main.8854a37a.css",
-    "main.js": "/charityFund/static/js/main.83f29f7b.js",
+    "main.css": "/charityFund/static/css/main.48230ebd.css",
+    "main.js": "/charityFund/static/js/main.3c99905e.js",
     "static/media/demo.mp4": "/charityFund/static/media/demo.843d0fdfb0830d60bf6d.mp4",
-    "static/media/bg.png": "/charityFund/static/media/bg.79452001f7a1a9f2f6c6.png",
+    "static/media/bg.png": "/charityFund/static/media/bg.099564fb3b94331a60ab.png",
     "static/media/Lato-Regular.woff": "/charityFund/static/media/Lato-Regular.ec55c1c4f33848fee5ee.woff",
     "static/media/Lato-Bold.woff": "/charityFund/static/media/Lato-Bold.40eb26b0eedcb6d0e7ae.woff",
     "static/media/Lato-Light.woff": "/charityFund/static/media/Lato-Light.7f0c0a9134cf020ed97a.woff",
@@ -14,6 +14,7 @@
     "static/media/Lato-Light.woff2": "/charityFund/static/media/Lato-Light.4fd96c2bff59ea6fa7c1.woff2",
     "static/media/Raleway-Bold.woff": "/charityFund/static/media/Raleway-Bold.f70ab645f9f8355ba0a4.woff",
     "static/media/Raleway-Bold.woff2": "/charityFund/static/media/Raleway-Bold.2db4febfd24dc7b6a061.woff2",
+    "static/media/Gorbatuk.jpg": "/charityFund/static/media/Gorbatuk.47de58af93b16df748f3.jpg",
     "static/media/btcQr.jpg": "/charityFund/static/media/btcQr.1b29af89497612a716aa.jpg",
     "static/media/erc20qr.jpg": "/charityFund/static/media/erc20qr.85d5a66149874a1a3388.jpg",
     "static/media/Moisuk.jpg": "/charityFund/static/media/Moisuk.af21a56fe966b8bc9f1c.jpg",
@@ -22,11 +23,11 @@
     "static/media/Shaptala.jpg": "/charityFund/static/media/Shaptala.ef23be3792eee461de35.jpg",
     "static/media/logo.png": "/charityFund/static/media/logo.dac0e96787bf051617a9.png",
     "index.html": "/charityFund/index.html",
-    "main.8854a37a.css.map": "/charityFund/static/css/main.8854a37a.css.map",
-    "main.83f29f7b.js.map": "/charityFund/static/js/main.83f29f7b.js.map"
+    "main.48230ebd.css.map": "/charityFund/static/css/main.48230ebd.css.map",
+    "main.3c99905e.js.map": "/charityFund/static/js/main.3c99905e.js.map"
   },
   "entrypoints": [
-    "static/css/main.8854a37a.css",
-    "static/js/main.83f29f7b.js"
+    "static/css/main.48230ebd.css",
+    "static/js/main.3c99905e.js"
   ]
 }
