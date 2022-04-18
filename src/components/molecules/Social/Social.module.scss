@@ -1,0 +1,23 @@
+@import "styles/mixins";
+
+.list {
+  @include resetList;
+
+  display: flex;
+  align-items: center;
+  margin-top: 2.4rem;
+}
+
+.item {
+  &:not(:first-child) {
+    margin-left: 2.4rem;
+  }
+}
+
+@media (max-width: $adaptiveMax) {
+  .item {
+    &:not(:first-child) {
+      margin-left: 1.6rem;
+    }
+  }
+}

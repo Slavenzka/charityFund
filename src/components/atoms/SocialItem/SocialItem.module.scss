@@ -9,8 +9,34 @@
   font-size: 0;
   background-color: color(white);
   border-radius: 50%;
+  transition-duration: $transitionDuration;
+  transition-property: background-color;
+
+  &:hover {
+    background-color: transparent;
+
+    .icon {
+      fill: color(white);
+    }
+  }
 }
 
 .icon {
   fill: color(black);
+  transition-duration: $transitionDuration;
+  transition-property: fill;
+}
+
+.wrapperDark {
+  background-color: color(black);
+
+  &:hover {
+    .icon {
+      fill: color(black);
+    }
+  }
+
+  .icon {
+    fill: color(white);
+  }
 }

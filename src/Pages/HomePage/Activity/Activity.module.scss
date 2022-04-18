@@ -21,3 +21,27 @@
   width: 87.5rem;
   letter-spacing: 0;
 }
+
+@media (max-width: $adaptiveMax) {
+  .wrapper {
+    margin-top: 8rem;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 0;
+    margin-top: 2.4rem;
+  }
+
+  .item {
+    &:not(:first-child) {
+      margin-top: 1.6rem;
+    }
+  }
+
+  .description {
+    margin: 4rem 0 0 0;
+    width: auto;
+  }
+}

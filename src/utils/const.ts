@@ -44,3 +44,10 @@ export const FormErrorMessages = {
     INVALID_RANGE: `Selected range is invalid. Please, check the range data.`
   }
 }
+
+export const SCROLL_TO_ELEMENT_OFFSET = 50
+
+export enum CryptoOptions {
+  BTC = `BTC`,
+  ERC20 = `ERC20`
+}

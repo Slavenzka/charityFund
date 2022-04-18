@@ -1,0 +1,45 @@
+@import "styles/mixins";
+@import "styles/variables/index";
+
+@keyframes ship {
+  0% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(-2deg);
+  }
+}
+
+.button {
+  @include resetButton;
+  @include fontButton(color(white));
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10.9rem;
+  height: 5rem;
+  text-transform: uppercase;
+  background-color: color(black);
+}
+
+.iconWrapper {
+  position: absolute;
+  bottom: -1.35rem;
+  right: 2rem;
+  display: inline-block;
+  transform: translateX(0);
+  transition-duration: 0.5s;
+}
+
+.icon {
+  fill: white;
+  stroke: white;
+  width: 6rem;
+  animation-name: ship;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+}

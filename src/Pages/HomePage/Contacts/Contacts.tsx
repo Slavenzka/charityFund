@@ -4,12 +4,15 @@ import { LanguageOptions } from 'utils/const'
 import Container from 'components/templates/Container/Container'
 import Heading from 'components/atoms/Heading/Heading'
 import { HeadingTypes } from 'components/atoms/Heading/Heading.spec'
-import SocialItem from 'components/atoms/SocialItem/SocialItem'
-import IconInstagram from 'assets/icons/IconInstagram'
-import IconFacebook from 'assets/icons/IconFacebook'
-import IconTwitter from 'assets/icons/IconTwitter'
+import { SaveWaypointType } from 'components/organisms/controllers/WaypointsController/WaypointController.spec'
+import { NavigationData } from 'components/organisms/Navigation/_assets/data'
+import Social from 'components/molecules/Social/Social'
+import { useSelector } from 'react-redux'
+import { RootReducerType } from 'store/spec/index.spec'
+import { DeviceTypes } from 'specs/enum.spec'
+import ContainerAdaptive from 'components/templates/Container/ContainerAdaptive'
 
-function Contacts ({lang}: {lang: LanguageOptions}) {
+function Contacts ({lang, saveWaypoint}: {lang: LanguageOptions} & SaveWaypointType) {
   const data = {
     heading: {
       [LanguageOptions.UA]: `Контакти`,
@@ -34,9 +37,19 @@ function Contacts ({lang}: {lang: LanguageOptions}) {
     }
   }
 
+  const deviceType = useSelector((store: RootReducerType) => store.elastic.deviceType)
+  const isAdaptive = deviceType === DeviceTypes.ADAPTIVE
+  const ContainerComponent = isAdaptive
+    ? ContainerAdaptive
+    : Container
+
   return (
-    <section className={css.wrapper}>
-      <Container className={css.container}>
+    <section
+      className={css.wrapper}
+      id={NavigationData.CONTACTS.id}
+      ref={saveWaypoint}
+    >
+      <ContainerComponent className={css.container}>
         <Heading
           className={css.heading}
           headingStyle={HeadingTypes.H3}
@@ -56,31 +69,9 @@ function Contacts ({lang}: {lang: LanguageOptions}) {
           >
             {data.contacts[lang].site}
           </a>
-          <ul className={css.list}>
-            <li className={css.item}>
-              <SocialItem
-                url={data.social.instagram}
-                Icon={IconInstagram}
-                label="Follow us in Instagram"
-              />
-            </li>
-            <li className={css.item}>
-              <SocialItem
-                url={data.social.facebook}
-                Icon={IconFacebook}
-                label="Follow us in Facebook"
-              />
-            </li>
-            <li className={css.item}>
-              <SocialItem
-                url={data.social.twitter}
-                Icon={IconTwitter}
-                label="Follow us in Twitter"
-              />
-            </li>
-          </ul>
+          <Social className={css.social} />
         </div>
-      </Container>
+      </ContainerComponent>
     </section>
   )
 }

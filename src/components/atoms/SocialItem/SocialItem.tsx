@@ -7,16 +7,20 @@ function SocialItem ({
   className,
   url,
   Icon,
-  label
+  label,
+  isDark
 }: {
   url: string,
   Icon: ElementType,
+  isDark?: boolean,
   label: string
 } & PropsWithClassName) {
   return (
     <a
       href={url}
-      className={classnames(css.wrapper, className)}
+      className={classnames(css.wrapper, className, {
+        [css.wrapperDark]: isDark
+      })}
       rel="noreferrer noopener"
       target="_blank"
     >

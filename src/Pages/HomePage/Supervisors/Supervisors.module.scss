@@ -13,3 +13,30 @@
   margin-top: 5.6rem;
   padding: 0 7rem;
 }
+
+.item {
+  &:last-child {
+    grid-column: 2 / 3;
+  }
+}
+
+@media (max-width: $adaptiveMax) {
+  .wrapper {
+    padding-top: 8rem;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-gap: 0;
+    margin-top: 2.5rem;
+    padding: 0;
+  }
+
+  .item {
+    &:not(:first-child) {
+      margin-top: 4rem;
+    }
+  }
+}

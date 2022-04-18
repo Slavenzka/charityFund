@@ -7,6 +7,7 @@
   transition-timing-function: ease-in-out;
   transition-property: top, background-color;
   background-color: white;
+  z-index: 2;
 }
 
 .scroll-down {
@@ -15,5 +16,5 @@
 
 .scroll-up {
   top: 0;
-  background-color: lightgrey;
+  background-color: white;
 }

@@ -1,0 +1,77 @@
+@import "../../../styles/variables/index";
+@import "../../../styles/mixins";
+
+.header {
+  --adaptive-header-height: 8rem;
+  background-color: color(white);
+
+  .container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: var(--adaptive-header-height);
+    background-color: color(white);
+    z-index: 2;
+  }
+
+  .button {
+    @include resetButton;
+
+    position: relative;
+    width: 3rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -1rem;
+      left: -1rem;
+      width: calc(100% + 2rem);
+      height: calc(100% + 2rem);
+    }
+  }
+
+  .iconBurger {
+    width: 100%;
+    fill: color(black);
+  }
+
+  .iconClose {
+    width: 2.3rem;
+  }
+
+  .logo {
+    margin-left: 3rem;
+    height: 3rem;
+  }
+
+  .buttonSupport {
+    margin-left: auto;
+  }
+
+  .menu {
+    position: absolute;
+    top: calc(var(--adaptive-header-height) - 100%);
+    left: 0;
+    width: 100%;
+    padding: 3rem 0;
+    height: calc(100vh - var(--adaptive-header-height));
+    background-color: color(white);
+    border-top: 1px solid color(gray);
+    overflow: scroll;
+    z-index: 1;
+  }
+
+  .menuClose {
+    transition-duration: $transitionDuration;
+    top: calc(var(--adaptive-header-height) - 100%);
+  }
+
+  .menuOpen {
+    transition-duration: $transitionDuration;
+    top: var(--adaptive-header-height);
+  }
+
+  .navigation {
+    margin-top: 4rem;
+  }
+}

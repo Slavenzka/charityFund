@@ -6,40 +6,52 @@
   padding-top: 4rem;
   padding-bottom: 4rem;
   border-top: 1px solid color(gray);
+
+  .container {
+    display: grid;
+    grid-template-columns: 22rem 46.6rem 1fr;
+    grid-column-gap: 11rem;
+  }
+
+  .heading {
+    font-family: "Raleway", Arial, sans-serif;
+  }
+
+  .contacts {
+    @include regular(color(white), 500);
+
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 0;
+  }
+
+  .link {
+    color: color(white);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .social {
+    margin-top: 2.4rem;
+  }
 }
 
-.container {
-  display: grid;
-  grid-template-columns: 22rem 46.6rem 1fr;
-  grid-column-gap: 11rem;
-}
+@media (max-width: $adaptiveMax) {
+  .wrapper {
+    margin-top: 8rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
 
-.heading {
-  font-family: "Raleway", Arial, sans-serif;
-}
+    .container {
+      display: flex;
+      flex-direction: column;
+      grid-column-gap: 0;
+    }
 
-.contacts {
-  @include regular(color(white), 500);
-
-  display: flex;
-  flex-direction: column;
-  letter-spacing: 0;
-}
-
-.link {
-  color: color(white);
-}
-
-.list {
-  @include resetList;
-
-  display: flex;
-  align-items: center;
-  margin-top: 2.4rem;
-}
-
-.item {
-  &:not(:first-child) {
-    margin-left: 2.4rem;
+    .contacts {
+      margin-top: 1.7rem;
+    }
   }
 }

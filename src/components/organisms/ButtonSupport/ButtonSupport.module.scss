@@ -1,12 +1,55 @@
 @import "styles/mixins";
 @import "styles/variables/index";
 
+@keyframes ship {
+  0% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(-2deg);
+  }
+}
+
 .button {
   @include resetButton;
   @include fontButton(color(white));
 
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 18.7rem;
-  height: 4rem;
+  height: 6rem;
   text-transform: uppercase;
   background-color: color(black);
+  overflow: hidden;
+
+  &:hover,
+  &:active {
+    .iconWrapper {
+      transform: translateX(-20rem) translateY(3rem);
+      transition-timing-function: ease-in;
+    }
+  }
+}
+
+.iconWrapper {
+  position: absolute;
+  bottom: -3.4rem;
+  right: 0.5rem;
+  display: inline-block;
+  transform: translateX(0);
+  transition-duration: 0.5s;
+}
+
+.icon {
+  fill: white;
+  stroke: white;
+  width: 8rem;
+  animation-name: ship;
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
 }

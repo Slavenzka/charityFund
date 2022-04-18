@@ -31,8 +31,14 @@ export interface StoreTableSlice {
   selection: string[];
 }
 
+export interface WaypointsSlice {
+  isActive: boolean,
+  selectedWaypoint: string | null
+}
+
 export interface RootReducerType {
   ui: StoreUISlice;
   elastic: StoreElasticSlice;
   table: StoreTableSlice;
+  waypoints: WaypointsSlice;
 }

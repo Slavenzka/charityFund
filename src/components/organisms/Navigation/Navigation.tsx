@@ -3,8 +3,9 @@ import css from './Navigation.module.scss'
 import classnames from 'classnames'
 import { PropsWithClassName } from 'specs/index.spec'
 import { NavigationData } from 'components/organisms/Navigation/_assets/data'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { RootReducerType } from 'store/spec/index.spec'
+import { setActiveWaypoint, setWaypointsStatus } from 'store/actions'
 
 function Navigation ({
   className,
@@ -13,10 +14,14 @@ function Navigation ({
   isLight?: boolean
 } & PropsWithClassName) {
   const lang = useSelector((store: RootReducerType) => store.ui.lang)
+  const selectedWaypoint = useSelector((store: RootReducerType) => store.waypoints.selectedWaypoint)
+  const dispatch = useDispatch()
 
   const handleClickButton = useCallback(id => {
-    alert(`Scroll to id#${id}`)
-  }, [])
+    dispatch(setActiveWaypoint(id))
+    dispatch(setWaypointsStatus(false))
+
+  }, [dispatch])
 
   const items = useMemo(() => {
     return Object.values(NavigationData).map(({label, id}, index) => (
@@ -24,7 +29,8 @@ function Navigation ({
         <button
           onClick={() => handleClickButton(id)}
           className={classnames(css.button, {
-            [css.buttonLight]: isLight
+            [css.buttonLight]: isLight,
+            [css.buttonActive]: selectedWaypoint === id
           })}
           type="button"
         >
@@ -32,7 +38,7 @@ function Navigation ({
         </button>
       </li>
     ))
-  }, [lang, handleClickButton, isLight])
+  }, [lang, handleClickButton, isLight, selectedWaypoint])
 
   return (
     <ul className={classnames(css.list, className)}>

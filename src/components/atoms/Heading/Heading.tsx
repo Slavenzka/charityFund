@@ -1,4 +1,4 @@
-import { FC, memo } from 'react'
+import { memo } from 'react'
 import css from './Heading.module.scss'
 import classnames from 'classnames'
 import { HeadingProps, HeadingTypes } from "components/atoms/Heading/Heading.spec"

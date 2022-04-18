@@ -8,3 +8,7 @@ export const SET_LANG = `SET_LANG`
 
 // selection
 export const UPDATE_TABLE_SELECTED_ITEMS = `UPDATE_TABLE_SELECTED_ITEMS`
+
+// waypoints
+export const SET_WAYPOINTS_STATUS = `SET_WAYPOINTS_STATUS`
+export const SET_ACTIVE_WAYPOINT = `SET_ACTIVE_WAYPOINT`

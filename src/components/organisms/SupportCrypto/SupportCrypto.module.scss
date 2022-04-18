@@ -1,0 +1,78 @@
+@import "styles/variables/index";
+@import "styles/mixins";
+
+.crypto {
+  display: flex;
+  flex-direction: column;
+}
+
+.wallet {
+  @include fontDescription;
+
+  position: relative;
+}
+
+.label {
+  @include fontButton(color(white));
+
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 0.5rem);
+  width: 100%;
+  text-align: center;
+  background-color: color(black);
+  transition-duration: $transitionDuration;
+  transition-property: opacity;
+  opacity: 0;
+}
+
+.walletCopied {
+  .label {
+    opacity: 1;
+  }
+}
+
+.network,
+.link {
+  @include fontDescription;
+
+  display: inline-block;
+  margin-top: 2rem;
+  opacity: 0.7;
+}
+
+.link {
+  opacity: 1;
+  transition-duration: $transitionDuration;
+  transition-property: opacity;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.qr {
+  margin-top: 2rem;
+  width: 25rem;
+  height: 25rem;
+  object-fit: cover;
+}
+
+.button {
+  @include resetButton;
+
+  position: absolute;
+  top: calc(50% - 2rem / 2);
+  right: 0;
+}
+
+.icon {
+  width: 2rem;
+  fill: color(white);
+}
+
+@media (max-width: $adaptiveMax) {
+  .wallet {
+    font-size: 1rem;
+  }
+}

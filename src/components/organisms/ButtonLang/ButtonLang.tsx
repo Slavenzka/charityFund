@@ -29,15 +29,14 @@ function ButtonLang ({
       type="button"
     >
       <span
-        className={classnames({
+        className={classnames(css.lang, {
           [css.langSelected]: lang === LanguageOptions.UA
         })}
       >
         {LanguageOptions.UA}
       </span>
-      /
       <span
-        className={classnames({
+        className={classnames(css.lang, {
           [css.langSelected]: lang === LanguageOptions.ENG
         })}
       >

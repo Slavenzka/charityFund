@@ -3,21 +3,32 @@
 .wrapper {
   padding: 1.7rem 0;
   border-top: 1px solid color(gray);
-}
 
-.container {
-  display: flex;
-  align-items: center;
-}
+  .container {
+    display: flex;
+    align-items: center;
+  }
 
-.logo {
-  height: 6rem;
-}
+  .logo {
+    height: 6rem;
+  }
 
-.navigation {
-  margin-left: 18.4rem;
-}
+  .navigation {
+    margin-left: 18.4rem;
+  }
 
-.button {
-  margin-left: auto;
+  .button {
+    margin-left: auto;
+  }
+
+  .link {
+    display: inline-block;
+    margin-left: 4rem;
+    font-size: 0;
+  }
+
+  .iconDev {
+    width: 5rem;
+    fill: color(white);
+  }
 }

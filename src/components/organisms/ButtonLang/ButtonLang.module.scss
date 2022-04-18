@@ -6,10 +6,43 @@
   @include fontNavigation(color(black));
 }
 
+.lang {
+  opacity: 0.5;
+  transition-duration: $transitionDuration;
+  transition-property: opacity;
+
+  &:first-child {
+    &::after {
+      content: "/";
+    }
+  }
+}
+
 .buttonLight {
   color: color(white);
 }
 
 .langSelected {
   font-weight: 700;
+  opacity: 1;
+}
+
+@media (max-width: $adaptiveMax) {
+  .lang {
+    &:first-child {
+      margin-right: 2.2rem;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    &:not(.langSelected) {
+      opacity: 0.5;
+    }
+  }
+
+  .langSelected {
+    font-weight: 500;
+  }
 }

@@ -8,5 +8,6 @@ export interface HeaderProps {
   /*
   *JRef setter for header wrapper
   */
-  headerRef?: RefGetterType
+  headerRef?: RefGetterType;
+  onNavClick: () => void;
 }

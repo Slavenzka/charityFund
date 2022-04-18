@@ -1,13 +1,14 @@
-import { memo, useCallback, useMemo } from 'react'
+import { memo, useMemo } from 'react'
 import css from './ButtonSupport.module.scss'
 import { useSelector } from 'react-redux'
 import { RootReducerType } from 'store/spec/index.spec'
 import { LanguageOptions } from 'utils/const'
 import classnames from 'classnames'
 import { PropsWithClassName } from 'specs/index.spec'
+import IconShip from 'assets/icons/IconShip'
 
 function ButtonSupport ({
-  className
+  className,
 }: PropsWithClassName) {
   const lang = useSelector((store: RootReducerType) => store.ui.lang)
 
@@ -17,18 +18,18 @@ function ButtonSupport ({
     return `Support`
   }, [lang])
 
-  const handleClickButton = useCallback(() => {
-    alert(`Button support is clicked`)
-  }, [])
-
   return (
-    <button
-      onClick={handleClickButton}
+    <a
+      href="https://payhub.com.ua/#/payment/zaluzhnoho"
       className={classnames(css.button, className)}
-      type="button"
+      target="_blank"
+      rel="noreferrer noopener"
     >
       {label}
-    </button>
+      <span className={css.iconWrapper}>
+        <IconShip className={css.icon} />
+      </span>
+    </a>
   )
 }
 

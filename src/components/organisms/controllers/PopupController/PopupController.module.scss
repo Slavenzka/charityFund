@@ -1,0 +1,20 @@
+@import "styles/variables/index";
+@import "styles/mixins";
+
+.popup {
+  @include fontButton(color(black));
+
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 2rem;
+  width: 20rem;
+  text-align: center;
+  background-color: color(white);
+  transition-duration: $transitionDuration;
+  transform: translateY(10rem);
+}
+
+.popupVisible {
+  transform: translateY(0);
+}

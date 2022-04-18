@@ -4,6 +4,7 @@ import Container from 'components/templates/Container/Container'
 import logoLight from 'assets/images/logo_light.png'
 import Navigation from 'components/organisms/Navigation/Navigation'
 import ButtonLang from 'components/organisms/ButtonLang/ButtonLang'
+import IconEvoltech from 'assets/icons/IconEvoltech'
 
 function Footer () {
   return (
@@ -22,6 +23,16 @@ function Footer () {
           className={css.button}
           isLight
         />
+        <a
+          className={css.link}
+          href="https://www.evol.tech/"
+          target="_blank"
+          rel="noreferrer noopener"
+          title="Design and development by EvolTech"
+        >
+          <IconEvoltech className={css.iconDev} />
+          EvolTech - web and mobile apps developer
+        </a>
       </Container>
     </footer>
   )

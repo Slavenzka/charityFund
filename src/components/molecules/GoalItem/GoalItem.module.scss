@@ -5,16 +5,30 @@
   @include regular(color(white), 300);
 
   position: relative;
+  padding-top: 11rem;
   text-align: right;
+  overflow: hidden;
 
   &::before {
     content: "";
     position: absolute;
-    top: -2.4rem;
+    top: 8.5rem;
     right: 0;
     width: 33.6rem;
     height: 0.3rem;
     background-color: color(white);
+  }
+
+  .label {
+    display: block;
+    transform: translateX(-100%);
+    transition-duration: $transitionDuration;
+  }
+}
+
+.itemVisible {
+  .label {
+    transform: translateX(0);
   }
 }
 
@@ -22,6 +36,17 @@
   @include h0;
 
   position: absolute;
-  top: -11rem;
+  top: 0;
   left: 0;
+}
+
+@media (max-width: $adaptiveMax) {
+  .item {
+    padding-top: 7rem;
+
+    &::before {
+      top: 5rem;
+      width: 27.2rem;
+    }
+  }
 }

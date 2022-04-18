@@ -1,5 +1,4 @@
 import Modal from 'components/organisms/Modal/Modal'
-import { BrowserRouter } from 'react-router-dom'
 import configureStore from 'store/configureStore'
 import { Provider } from 'react-redux'
 import 'normalize.css'
@@ -14,11 +13,9 @@ function GlobalServicesProvider ({
   
   return (
     <Provider store={store}>
-      <BrowserRouter>
-        <Modal>
-          { children }
-        </Modal>
-      </BrowserRouter>
+      <Modal>
+        { children }
+      </Modal>
     </Provider>
   )
 }

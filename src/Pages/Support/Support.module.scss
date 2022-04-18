@@ -1,3 +1,6 @@
+@import "styles/variables/index";
+@import "styles/mixins";
+
 .wrapper {
   padding-top: 15rem;
 }
@@ -17,5 +20,101 @@
 .item {
   &:not(:first-child) {
     margin-top: 2.4rem;
+  }
+}
+
+.tabs {
+  @include resetList;
+
+  margin-top: 2rem;
+}
+
+.tab {
+  @include resetButton;
+  @include fontButton(color(white));
+
+  opacity: 0.5;
+  transition-duration: $transitionDuration;
+  transition-property: opacity;
+
+  &:not(:first-child) {
+    margin-left: 5rem;
+  }
+}
+
+.tabActive {
+  opacity: 1;
+}
+
+.link {
+  @include fontButton(color(white));
+
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  width: 35rem;
+  text-transform: uppercase;
+  background-color: color(black);
+  overflow: hidden;
+  transition-duration: $transitionDuration;
+  transition-property: opacity;
+  opacity: 1;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.iconCard {
+  margin-left: 2rem;
+  height: 5rem;
+  fill: color(white);
+}
+
+@media (max-width: $adaptiveMax) {
+  .wrapper {
+    padding-top: 8rem;
+  }
+
+  .subheading {
+    margin-top: 0.8rem;
+    font-size: 2.1rem;
+    line-height: 2.8rem;
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-row-gap: 1.6rem;
+    grid-column-gap: 0;
+    margin-top: 2.4rem;
+  }
+
+  .item {
+    &:not(:first-child) {
+      margin-top: 1.6rem;
+    }
+  }
+
+  .tabs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tab {
+    &:not(:first-child) {
+      margin-top: 2rem;
+      margin-left: 0;
+    }
+  }
+
+  .link {
+    width: 100%;
+  }
+
+  .iconCard {
+    margin-left: auto;
+    height: 4rem;
   }
 }

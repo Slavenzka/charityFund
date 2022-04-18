@@ -24,9 +24,7 @@ function SupervisorItem ({
         headingType={HeadingTypes.H3}
         headingStyle={HeadingTypes.H4}
       />
-      <p className={css.rank}>
-        {rank}
-      </p>
+      <p className={css.rank} dangerouslySetInnerHTML={{__html: rank}} />
     </li>
   )
 }

@@ -1,0 +1,33 @@
+@import "styles/variables/index";
+
+.wrapper {
+  margin-top: auto;
+  padding: 2.7rem 0;
+  border-top: 1px solid color(gray);
+
+  .container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .logo {
+    margin: 2.4rem auto 0 auto;
+    height: 3rem;
+  }
+
+  .navigation {
+    padding-bottom: 0;
+  }
+
+  .link {
+    display: inline-block;
+    margin: 2rem auto 0 auto;
+    font-size: 0;
+  }
+
+  .iconDev {
+    width: 5rem;
+    fill: color(white);
+  }
+}

@@ -8,7 +8,10 @@ import Navigation from 'components/organisms/Navigation/Navigation'
 import ButtonLang from 'components/organisms/ButtonLang/ButtonLang'
 import ButtonSupport from 'components/organisms/ButtonSupport/ButtonSupport'
 
-const Header: FC<HeaderProps> = ({className, headerRef}) => {
+const Header: FC<HeaderProps> = ({
+  className,
+  headerRef,
+}) => {
   return (
     <header
       className={classnames(css.header, className)}

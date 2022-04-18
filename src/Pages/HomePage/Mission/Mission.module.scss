@@ -3,7 +3,7 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 43.7rem;
+  grid-template-columns: 1fr 55rem;
   grid-gap: 2.6rem 10.9rem;
   padding-top: 10.6rem;
 }
@@ -23,24 +23,42 @@
 }
 
 .frame {
+  position: relative;
   grid-column: 2 / 3;
   grid-row: 1 / 4;
-  padding: 7.5rem 4.8rem;
+  display: flex;
+  justify-content: center;
   width: 100%;
   height: 54rem;
-  background-size: cover;
+}
+
+.video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .link {
+  @include resetButton;
   @include fontBanner;
 
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 7.5rem 4.8rem;
   padding: 4.2rem 6.8rem 4rem 4rem;
-  height: 100%;
+  width: 34rem;
+  text-align: left;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 1rem;
+
+  &:hover {
+    .icon {
+      transform: rotate(-90deg) translateY(5rem);
+    }
+  }
 }
 
 .icon {
@@ -49,4 +67,33 @@
   fill: color(white);
   transform: rotate(-90deg);
   transform-origin: center;
+  transition-duration: $transitionDuration;
+}
+
+@media (max-width: $adaptiveMax) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 0;
+    padding-top: 3.2rem;
+  }
+
+  .description {
+    margin-top: 1.6rem;
+  }
+
+  .frame {
+    margin-top: 2.4rem;
+    height: 38.5rem;
+  }
+
+  .link {
+    margin: 4.2rem auto;
+    padding: 2.4rem 2.4rem 1rem 2.4rem;
+    width: 26.2rem;
+  }
+
+  .icon {
+    margin-top: 1.5rem;
+  }
 }

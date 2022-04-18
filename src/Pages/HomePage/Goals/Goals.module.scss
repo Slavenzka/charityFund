@@ -10,5 +10,24 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 3.5rem;
-  margin-top: 17.6rem;
+  margin-top: 6.6rem;
+}
+
+@media (max-width: $adaptiveMax) {
+  .wrapper {
+    padding-top: 8rem;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 0;
+    margin-top: 3rem;
+  }
+
+  .item {
+    &:not(:first-child) {
+      margin-top: 2.4rem;
+    }
+  }
 }
