@@ -22,6 +22,7 @@ pipelines:
             - docker
           script:
             - pip install ansible
+            - ansible-galaxy collection install community.docker
             - echo $ANSIBLE_PASSWORD > ansible/secret
             - ansible-playbook ansible/deploy.yml -i ansible/hosts.ini --vault-password-file ansible/secret -u fund
 
