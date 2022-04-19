@@ -1,0 +1,36 @@
+image: python:3.8.1
+pipelines:
+  branches:
+   
+    master:
+      - step:
+          name: Run CI
+          services:
+            - docker
+          caches:
+            - docker
+            - pip
+          script:
+            - docker login --username $USERNAME --password $PASSWORD $REPO
+            - docker build -t fund .
+            - docker tag fund:latest registry.evolreg.cf/fund:latest
+            - docker push registry.evolreg.cf/fund:latest
+
+      - step:
+          name: Deploy to server
+          services:
+            - docker
+          script:
+            - pip install ansible
+            - ansible-galaxy collection install community.docker
+            - echo $ANSIBLE_PASSWORD > ansible/secret
+            - ansible-playbook ansible/deploy.yml -i ansible/host.ini --vault-password-file ansible/secret -u fund
+
+
+
+
+
+definitions:
+  services:
+    docker:
+      memory: 2048

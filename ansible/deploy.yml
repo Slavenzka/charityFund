@@ -1,0 +1,22 @@
+- name: Deployment
+  hosts: prod
+  tasks:
+     - name: Change interpreter
+       set_fact:
+          ansible_python_interpreter: /usr/bin/python3
+
+     - include_vars: vars.yml
+
+     - name: Log in to docker-hub
+       shell:
+          cmd: "docker login -u {{ docker_user }} -p {{ docker_password }} {{ host }}"
+     
+     - name: Deploy container
+       docker_container:
+         name: fund
+         state: started
+         pull: yes
+         restart: yes
+         image: "registry.evolreg.cf/fund:latest"
+         ports:
+            - "127.0.0.1:8081:80"
