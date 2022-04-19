@@ -24,7 +24,7 @@ pipelines:
             - pip install ansible
             - ansible-galaxy collection install community.docker
             - echo $ANSIBLE_PASSWORD > ansible/secret
-            - ansible-playbook ansible/deploy.yml -i ansible/hosts.ini --vault-password-file ansible/secret -u fund
+            - ansible-playbook ansible/deploy.yml -i ansible/host.ini --vault-password-file ansible/secret -u fund
 
 
 
