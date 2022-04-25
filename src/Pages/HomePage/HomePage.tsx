@@ -26,8 +26,8 @@ function HomePage ({
       <>
         <h1 className="visuallyHidden">
           {lang === LanguageOptions.UA
-            ? `Благодійний фонд генерала Залужного`
-            : `Charitable Foundation of general Zaluzhny`
+            ? `Благодійний фонд "Ми переможемо"`
+            : `"We will win" charity fund`
           }
         </h1>
         <WaypointsController>
