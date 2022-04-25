@@ -23,8 +23,8 @@ function Mission ({
       [LanguageOptions.ENG]: `Fund mission`,
     },
     description: {
-      [LanguageOptions.UA]: `Благодійний фонд генерала Залужного cтворений з метою координації дій українських та&nbsp;міжнародних волонтерів для максимально ефективного використання ресурсів згідно з&nbsp;актуальними короткостроковими та&nbsp;довгостроковими задачами Збройних Сил України`,
-      [LanguageOptions.ENG]: `The General Zaluzhny Charitable Foundation was established to&nbsp;coordinate the actions of&nbsp;Ukrainian and international volunteers for the most efficient use of&nbsp;resources in&nbsp;accordance with the current short-term and long-term objectives of&nbsp;the Armed Forces of&nbsp;Ukraine`,
+      [LanguageOptions.UA]: `Благодійний фонд "Ми переможемо" cтворений з метою координації дій українських та&nbsp;міжнародних волонтерів для максимально ефективного використання ресурсів згідно з&nbsp;актуальними короткостроковими та&nbsp;довгостроковими задачами Збройних Сил України`,
+      [LanguageOptions.ENG]: `"We will win" Charitable Foundation was established to&nbsp;coordinate the actions of&nbsp;Ukrainian and international volunteers for the most efficient use of&nbsp;resources in&nbsp;accordance with the current short-term and long-term objectives of&nbsp;the Armed Forces of&nbsp;Ukraine`,
     },
     link: {
       [LanguageOptions.UA]: `Підтримай Збройні Сили України`,
