@@ -224,7 +224,7 @@ function Support ({lang, saveWaypoint}: {lang: LanguageOptions} & SaveWaypointTy
     if (tab === TabTypes.CARD) {
       return (
         <a
-          href="https://payhub.com.ua/#/payment/zaluzhnoho"
+          href="https://payhub.com.ua/#/payment/my-peremozhemo"
           className={css.link}
           target="_blank"
           rel="noreferrer noopener"
