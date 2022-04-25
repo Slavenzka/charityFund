@@ -3,10 +3,10 @@ import css from 'components/organisms/Header/Header.module.scss'
 import Container from 'components/templates/Container/Container'
 import { HeaderProps } from 'components/organisms/Header/Header.spec'
 import classnames from 'classnames'
-import logo from 'assets/images/logo.png'
 import Navigation from 'components/organisms/Navigation/Navigation'
 import ButtonLang from 'components/organisms/ButtonLang/ButtonLang'
 import ButtonSupport from 'components/organisms/ButtonSupport/ButtonSupport'
+import IconLogo from 'assets/icons/IconLogo'
 
 const Header: FC<HeaderProps> = ({
   className,
@@ -18,11 +18,7 @@ const Header: FC<HeaderProps> = ({
       ref={headerRef}
     >
       <Container className={css.container}>
-        <img
-          src={logo}
-          className={css.logo}
-          alt="Благодійний фонд генерала Залужного"
-        />
+        <IconLogo className={css.logo} />
         <nav>
           <Navigation />
         </nav>

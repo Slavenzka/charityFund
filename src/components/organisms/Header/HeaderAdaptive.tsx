@@ -1,6 +1,5 @@
 import { memo, useCallback, useEffect, useRef, useState } from 'react'
 import css from './HeaderAdaptive.module.scss'
-import logo from 'assets/images/logo.png'
 import ContainerAdaptive from 'components/templates/Container/ContainerAdaptive'
 import ButtonSupportAdaptive from 'components/organisms/ButtonSupport/ButtonSupportAdaptive'
 import IconBurger from 'assets/icons/IconBurger'
@@ -10,6 +9,7 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import ButtonLang from 'components/organisms/ButtonLang/ButtonLang'
 import NavigationAdaptive from 'components/organisms/Navigation/NavigationAdaptive'
 import Social from 'components/molecules/Social/Social'
+import IconLogo from 'assets/icons/IconLogo'
 
 function HeaderAdaptive ({
   onNavClick
@@ -58,11 +58,7 @@ function HeaderAdaptive ({
             : <IconClose className={css.iconClose} />
           }
         </button>
-        <img
-          src={logo}
-          className={css.logo}
-          alt="Благодійний фонд генерала Залужного"
-        />
+        <IconLogo className={css.logo} />
         <ButtonSupportAdaptive
           className={css.buttonSupport}
         />

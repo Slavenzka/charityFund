@@ -1,9 +1,9 @@
 import { memo } from 'react'
 import css from './FooterAdaptive.module.scss'
-import logoLight from 'assets/images/logo_light.png'
 import ContainerAdaptive from 'components/templates/Container/ContainerAdaptive'
 import NavigationAdaptive from 'components/organisms/Navigation/NavigationAdaptive'
 import IconEvoltech from 'assets/icons/IconEvoltech'
+import IconLogo from 'assets/icons/IconLogo'
 
 function FooterAdaptive ({
   onNavClick
@@ -19,11 +19,7 @@ function FooterAdaptive ({
           isMinified
           isLight
         />
-        <img
-          src={logoLight}
-          className={css.logo}
-          alt="Благодійний фонд генерала Залужного"
-        />
+        <IconLogo className={css.logo} />
         <a
           className={css.link}
           href="https://www.evol.tech/"
