@@ -1,9 +1,10 @@
 import { memo, useMemo } from 'react'
 import css from './Supervisors.module.scss'
 import { LanguageOptions } from 'utils/const'
-import Zaluzhny from 'assets/images/Zaluzhny.jpg'
-import Moisuk from 'assets/images/Moisuk.jpg'
-import Shaptala from 'assets/images/Shaptala.jpg'
+// import Zaluzhny from 'assets/images/Zaluzhny.jpg'
+// import Moisuk from 'assets/images/Moisuk.jpg'
+// import Shaptala from 'assets/images/Shaptala.jpg'
+import Rogovtseva from 'assets/images/Rogovtseva.jpg'
 import Gorbatuk from 'assets/images/Gorbatuk.jpg'
 import Heading from 'components/atoms/Heading/Heading'
 import { HeadingTypes } from 'components/atoms/Heading/Heading.spec'
@@ -19,20 +20,25 @@ function Supervisors ({lang, saveWaypoint}: {lang: LanguageOptions} & SaveWaypoi
     },
     list: {
       [LanguageOptions.UA]: [
+        // {
+        //   name: `ЗАЛУЖНИЙ<br/>Валерій Федорович`,
+        //   rank: `голова Наглядової ради,<br/>Головнокомандувач Збройних Сил України`,
+        //   photo: Zaluzhny
+        // },
+        // {
+        //   name: `МОЙСЮК<br/>Євген Георгійович`,
+        //   rank: `член Наглядової ради,<br/>заступник Головнокомандувача Збройних Сил України`,
+        //   photo: Moisuk
+        // },
+        // {
+        //   name: `ШАПТАЛА<br/>Сергій Олександрович`,
+        //   rank: `член Наглядової ради,<br/>начальник Генерального штабу Збройних Сил України`,
+        //   photo: Shaptala
+        // },
         {
-          name: `ЗАЛУЖНИЙ<br/>Валерій Федорович`,
-          rank: `голова Наглядової ради,<br/>Головнокомандувач Збройних Сил України`,
-          photo: Zaluzhny
-        },
-        {
-          name: `МОЙСЮК<br/>Євген Георгійович`,
-          rank: `член Наглядової ради,<br/>заступник Головнокомандувача Збройних Сил України`,
-          photo: Moisuk
-        },
-        {
-          name: `ШАПТАЛА<br/>Сергій Олександрович`,
-          rank: `член Наглядової ради,<br/>начальник Генерального штабу Збройних Сил України`,
-          photo: Shaptala
+          name: `РОГОВЦЕВА<br/>Ада Миколаївна`,
+          rank: `голова наглядової ради, актриса, народна артистка України, Герой України`,
+          photo: Rogovtseva
         },
         {
           name: `ГОРБАТЮК<br/>Людмила Володимирівна`,
@@ -41,20 +47,25 @@ function Supervisors ({lang, saveWaypoint}: {lang: LanguageOptions} & SaveWaypoi
         },
       ],
       [LanguageOptions.ENG]: [
+        // {
+        //   name: `ZALUZHNYI<br/>Valerii Fedorovych`,
+        //   rank: `Chairman of the Supervisory Board,<br/>Commander-in-Chief of the Armed Forces of Ukraine`,
+        //   photo: Zaluzhny
+        // },
+        // {
+        //   name: `MOISIUK<br/>Yevhen Heorhiiovych`,
+        //   rank: `Member of the Supervisory Board,<br/>Deputy Commander-in-Chief of the Armed Forces of Ukraine`,
+        //   photo: Moisuk
+        // },
+        // {
+        //   name: `SHAPTALA<br/>Serhii Oleksandrovych`,
+        //   rank: `Member of the Supervisory Board,<br/>Chief of the General Staff of the Armed Forces of Ukraine`,
+        //   photo: Shaptala
+        // },
         {
-          name: `ZALUZHNYI<br/>Valerii Fedorovych`,
-          rank: `Chairman of the Supervisory Board,<br/>Commander-in-Chief of the Armed Forces of Ukraine`,
-          photo: Zaluzhny
-        },
-        {
-          name: `MOISIUK<br/>Yevhen Heorhiiovych`,
-          rank: `Member of the Supervisory Board,<br/>Deputy Commander-in-Chief of the Armed Forces of Ukraine`,
-          photo: Moisuk
-        },
-        {
-          name: `SHAPTALA<br/>Serhii Oleksandrovych`,
-          rank: `Member of the Supervisory Board,<br/>Chief of the General Staff of the Armed Forces of Ukraine`,
-          photo: Shaptala
+          name: `РОГОВЦЕВА<br/>Ада Миколаївна`,
+          rank: `head of supervisory board, actress, People's Artist of Ukraine, Hero of Ukraine`,
+          photo: Rogovtseva
         },
         {
           name: `HORBATYUK<br/>Lyudmyla Volodymyrivna`,

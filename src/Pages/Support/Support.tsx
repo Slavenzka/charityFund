@@ -29,7 +29,7 @@ function Support ({lang, saveWaypoint}: {lang: LanguageOptions} & SaveWaypointTy
           {
             key: `Зарахування коштів у гривні`,
             value: [
-              `Отримувач: БО "БФ "ГЕНЕРАЛА ЗАЛУЖНОГО"`,
+              `Отримувач: БО "БФ "МИ ПЕРЕМОЖЕМО"`,
               `Код ЄДРПОУ 44715019`,
               `Назва банку отримувача АТ "ПУМБ"`,
               `МФО банку отримувача 334851`,
@@ -41,7 +41,7 @@ function Support ({lang, saveWaypoint}: {lang: LanguageOptions} & SaveWaypointTy
           {
             key: `Зарахування коштів у EUR`,
             value: [
-              `Beneficiary: CO «CF «GENERAL ZALUZHNYI» `,
+              `Beneficiary: CO «CF «WE WILL WIN»`,
               `Beneficiary code 44715019`,
               `Beneficiary bank FIRST UKRAINIAN INTERNATIONAL BANK  4, Andriivska Str., Kyiv, 04070, Ukraine`,
               `IBAN UA553348510000000026003175486`,
@@ -51,12 +51,25 @@ function Support ({lang, saveWaypoint}: {lang: LanguageOptions} & SaveWaypointTy
               `Detail of payment: Charitable help`
             ]
           },
+          {
+            key: `Зарахування коштів у PLN`,
+            value: [
+              `Beneficiary: CO «CF «WE WILL WIN»`,
+              `Beneficiary code 44715019`,
+              `Beneficiary bank FIRST UKRAINIAN INTERNATIONAL BANK 4, Andriivska Str., Kyiv, 04070, Ukraine`,
+              `IBAN UA553348510000000026003175486`,
+              `SWIFT BIC: FUIBUA2X`,
+              `Bank correspondent PKO Bank Polski SA 15 Pulawska Street, 02-515 Warsaw, Poland`,
+              `SWIFT: BPKOPLPW`,
+              `Detail of payment: Charitable help`
+            ]
+          },
         ],
         column2: [
           {
             key: `Зарахування коштів в USD`,
             value: [
-              `Beneficiary: CO «CF «GENERAL ZALUZHNYI»`,
+              `Beneficiary: CO «CF «WE WILL WIN»`,
               `Beneficiary code 44715019`,
               `Beneficiary bank FIRST UKRAINIAN INTERNATIONAL BANK  4, Andriivska Str., Kyiv, 04070, Ukraine`,
               `IBAN UA553348510000000026003175486`,
@@ -69,7 +82,7 @@ function Support ({lang, saveWaypoint}: {lang: LanguageOptions} & SaveWaypointTy
           {
             key: `Зарахування коштів у GBP`,
             value: [
-              `Beneficiary: CO «CF «GENERAL ZALUZHNYI»`,
+              `Beneficiary: CO «CF «WE WILL WIN»`,
               `Beneficiary code 44715019`,
               `Beneficiary bank FIRST UKRAINIAN INTERNATIONAL BANK  4, Andriivska Str., Kyiv, 04070, Ukraine`,
               `IBAN UA553348510000000026003175486`,
@@ -86,7 +99,7 @@ function Support ({lang, saveWaypoint}: {lang: LanguageOptions} & SaveWaypointTy
           {
             key: `Transfers in UAH`,
             value: [
-              `Отримувач: БО "БФ "ГЕНЕРАЛА ЗАЛУЖНОГО"`,
+              `Отримувач: БО "БФ "МИ ПЕРЕМОЖЕМО"`,
               `Код ЄДРПОУ 44715019`,
               `Назва банку отримувача АТ "ПУМБ"`,
               `МФО банку отримувача 334851`,
@@ -98,7 +111,7 @@ function Support ({lang, saveWaypoint}: {lang: LanguageOptions} & SaveWaypointTy
           {
             key: `Transfers in EUR`,
             value: [
-              `Beneficiary: CO «CF «GENERAL ZALUZHNYI» `,
+              `Beneficiary: CO «CF «WE WILL WIN»`,
               `Beneficiary code 44715019`,
               `Beneficiary bank FIRST UKRAINIAN INTERNATIONAL BANK  4, Andriivska Str., Kyiv, 04070, Ukraine`,
               `IBAN UA553348510000000026003175486`,
@@ -108,12 +121,25 @@ function Support ({lang, saveWaypoint}: {lang: LanguageOptions} & SaveWaypointTy
               `Detail of payment: Charitable help`
             ]
           },
+          {
+            key: `Зарахування коштів у PLN`,
+            value: [
+              `Beneficiary: CO «CF «WE WILL WIN»`,
+              `Beneficiary code 44715019`,
+              `Beneficiary bank FIRST UKRAINIAN INTERNATIONAL BANK 4, Andriivska Str., Kyiv, 04070, Ukraine`,
+              `IBAN UA553348510000000026003175486`,
+              `SWIFT BIC: FUIBUA2X`,
+              `Bank correspondent PKO Bank Polski SA 15 Pulawska Street, 02-515 Warsaw, Poland`,
+              `SWIFT: BPKOPLPW`,
+              `Detail of payment: Charitable help`
+            ]
+          },
         ],
         column2: [
           {
             key: `Transfers in USD`,
             value: [
-              `Beneficiary: CO «CF «GENERAL ZALUZHNYI»`,
+              `Beneficiary: CO «CF «WE WILL WIN»`,
               `Beneficiary code 44715019`,
               `Beneficiary bank FIRST UKRAINIAN INTERNATIONAL BANK  4, Andriivska Str., Kyiv, 04070, Ukraine`,
               `IBAN UA553348510000000026003175486`,
@@ -126,7 +152,7 @@ function Support ({lang, saveWaypoint}: {lang: LanguageOptions} & SaveWaypointTy
           {
             key: `Transfers in GBP`,
             value: [
-              `Beneficiary: CO «CF «GENERAL ZALUZHNYI»`,
+              `Beneficiary: CO «CF «WE WILL WIN»`,
               `Beneficiary code 44715019`,
               `Beneficiary bank FIRST UKRAINIAN INTERNATIONAL BANK  4, Andriivska Str., Kyiv, 04070, Ukraine`,
               `IBAN UA553348510000000026003175486`,
