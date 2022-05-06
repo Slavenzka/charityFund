@@ -20,7 +20,7 @@ function ButtonSupportAdaptive ({
 
   return (
     <a
-      href="https://payhub.com.ua/#/payment/zaluzhnoho"
+      href="https://payhub.com.ua/#/payment/my-peremozhemo"
       className={classnames(css.button, className)}
       target="_blank"
       rel="noreferrer noopener"
